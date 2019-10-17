@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractUserService<E extends User, R extends AbstractUserRepository<E>> {
+public abstract class AbstractUserService<E extends User, R extends AbstractUserRepository<E>> implements CommonService<E>{
 
     protected final R repository;
 
@@ -17,24 +17,25 @@ public abstract class AbstractUserService<E extends User, R extends AbstractUser
     }
 
 
-    public E getProductById(Long id){
+    public E getUserById(Long id){
         E someUser=repository.findById(id).get();
         return someUser;
     }
 
-    public List<E> getAllProducts(){
+    public List<E> getAllUsers(){
         List<E> list = new ArrayList<>();
         repository.findAll().forEach(e->list.add(e));
         return list;
     }
-    public E addProduct(E someUser){
+    public E addUser(E someUser){
         E list = repository.save(someUser);
         return list;
     }
-    public void updateProduct(E someUser){
+    public void updateUser(E someUser){
         repository.save(someUser);
+
     }
-    public void deleteProduct(Long id){
+    public void deleteUser(Long id){
         repository.deleteById(id);
     }
 }
