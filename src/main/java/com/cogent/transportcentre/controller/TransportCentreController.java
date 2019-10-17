@@ -45,8 +45,8 @@ public class TransportCentreController {
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteTransportCentre(@PathVariable("tsId") Long prdId){
-        tcService.deleteTransportCentre(prdId);
+    public ResponseEntity<Void> deleteTransportCentre(@PathVariable("tsId") Long tsId){
+        tcService.deleteTransportCentre(tsId);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 
