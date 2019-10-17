@@ -22,17 +22,20 @@ public class DeliveryTask {
     @NotNull
     private String address;
 
-    @ManyToOne
-    @JoinColumn(name = "branch_id")
-    private BranchTransportCenter branch;
-
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-
-    @ManyToOne
-    @JoinColumn(name = "emp_id")
-    private Employee employee;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinTable( name = "branch_tasks", joinColumns = {@JoinColumn(name = "task_id")},
+//    inverseJoinColumns = {@JoinColumn(name = "branch_id"),@JoinColumn(name = "branch_name")})
+//    private BranchTransportCenter branch;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinTable( name = "customer_tasks", joinColumns = {@JoinColumn(name = "task_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "customer_id")})
+//    private Customer customer;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinTable( name = "employee_tasks", joinColumns = {@JoinColumn(name = "task_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "emp_id")})
+//    private Employee employee;
 
     public Long getDtId() {
         return dtId;
@@ -58,27 +61,27 @@ public class DeliveryTask {
         this.address = address;
     }
 
-    public BranchTransportCenter getBranch() {
-        return branch;
-    }
-
-    public void setBranch(BranchTransportCenter branch) {
-        this.branch = branch;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
+//    public BranchTransportCenter getBranch() {
+//        return branch;
+//    }
+//
+//    public void setBranch(BranchTransportCenter branch) {
+//        this.branch = branch;
+//    }
+//
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+//
+//    public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }
+//
+//    public Employee getEmployee() {
+//        return employee;
+//    }
+//
+//    public void setEmployee(Employee employee) {
+//        this.employee = employee;
+//    }
 }

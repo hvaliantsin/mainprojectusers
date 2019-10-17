@@ -2,9 +2,10 @@ package com.cogent.mainprojectusers.users.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @MappedSuperclass
-public abstract class User {
+public abstract class User implements Serializable {
     @Id
     @Column(name = "uid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +20,13 @@ public abstract class User {
     @Column(name = "email")
     protected String email;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
-    protected Role role;
-
-    public abstract void setRole();
+//    @ManyToOne
+//    @JoinColumn(name = "role_id")
+//    protected Role role;
+// public Role getRole() {
+//        return role;
+//    }
+//    public abstract void setRole();
 
     public Long getUserId() {
         return userId;
@@ -55,9 +58,5 @@ public abstract class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Role getRole() {
-        return role;
     }
 }

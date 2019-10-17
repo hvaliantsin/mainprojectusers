@@ -11,24 +11,29 @@ import java.util.Set;
 @Entity
 @Table(name = "branches")
 public class BranchTransportCenter extends User {
-    @Id
+
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "branch_id")
     private Long branchId;
+
     @NotNull
     @Column(name = "branch_name")
     private String brunchName;
 
-    @OneToMany(mappedBy = "tasks", cascade = CascadeType.ALL)
-    private Set<DeliveryTask> tasks = new HashSet<>();
+    @Column(name = "branch_address")
+    p
 
-    @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
-    private Set<Employee> employees = new HashSet<>();
+//    @OneToMany(mappedBy = "tasks", cascade = CascadeType.ALL)
+//    private Set<DeliveryTask> tasks = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
+//    private Set<Employee> employees = new HashSet<>();
 
-    @Override
-    public void setRole() {
-        this.role.setRoleName("BRANCH");
-    }
+//    @Override
+//    public void setRole() {
+//        this.role.setRoleName("BRANCH");
+//    }
 
     public Long getBranchId() {
         return branchId;
@@ -46,19 +51,19 @@ public class BranchTransportCenter extends User {
         this.brunchName = brunchName;
     }
 
-    public Set<DeliveryTask> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(Set<DeliveryTask> tasks) {
-        this.tasks = tasks;
-    }
-
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
-    }
+//    public Set<DeliveryTask> getTasks() {
+//        return tasks;
+//    }
+//
+//    public void setTasks(Set<DeliveryTask> tasks) {
+//        this.tasks = tasks;
+//    }
+//
+//    public Set<Employee> getEmployees() {
+//        return employees;
+//    }
+//
+//    public void setEmployees(Set<Employee> employees) {
+//        this.employees = employees;
+//    }
 }

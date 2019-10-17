@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "admins")
 public class Admin extends User {
-    @Id
     @Column(name = "admin_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long adminId;
@@ -18,9 +17,9 @@ public class Admin extends User {
         this.adminId = adminId;
     }
 
-    @Override
-    public void setRole() {
-        this.role.setRoleName("Admin");
-    }
+//    @Override
+//    public void setRole() {
+//        this.role.setRoleName("Admin");
+//    }
 
 }
