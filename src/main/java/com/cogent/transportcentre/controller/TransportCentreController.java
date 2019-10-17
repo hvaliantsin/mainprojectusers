@@ -30,7 +30,7 @@ public class TransportCentreController {
 
     @PostMapping
     public ResponseEntity<Void> addProduct(@RequestBody TransportCentre transportCentre, UriComponentsBuilder builder){
-        TransportCentre flag=tcService.addProduct(transportCentre);
+        TransportCentre flag=tcService.addTransportCentre(transportCentre);
         if (flag == null)
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
         HttpHeaders header = new HttpHeaders();
@@ -40,7 +40,7 @@ public class TransportCentreController {
 
     @PutMapping
     public ResponseEntity<TransportCentre> updateTransportCentre(@RequestBody TransportCentre transportCentre){
-        tcService.updateProduct(transportCentre);
+        tcService.updateTransportCentre(transportCentre);
         return  new ResponseEntity<TransportCentre>(transportCentre,HttpStatus.OK);
     }
 

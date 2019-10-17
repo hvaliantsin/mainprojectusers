@@ -1,5 +1,6 @@
-package com.cogent.mainprojectusers;
+package com.cogent;
 
+import com.cogent.MainprojectusersApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 

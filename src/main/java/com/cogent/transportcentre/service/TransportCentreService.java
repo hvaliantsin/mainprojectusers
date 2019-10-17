@@ -23,14 +23,14 @@ public class TransportCentreService {
         tcRepository.findAll().forEach(e->list.add(e));
         return list;
     }
-    public TransportCentre addProduct(TransportCentre prd){
+    public TransportCentre addTransportCentre(TransportCentre prd){
         TransportCentre list = tcRepository.save(prd);
         return list;
     }
-    public void updateProduct(TransportCentre prd){
+    public void updateTransportCentre(TransportCentre prd){
         tcRepository.save(prd);
     }
-    public void deleteProduct(Long prdId){
+    public void deleteTransportCentre(Long prdId){
         tcRepository.deleteById(prdId);
     }
 
