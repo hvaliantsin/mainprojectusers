@@ -1,15 +1,18 @@
 package com.cogent.mainprojectusers.users.model;
 
+import org.springframework.context.annotation.Primary;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-@MappedSuperclass
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User implements Serializable {
     @Id
     @Column(name = "uid")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     protected Long userId;
    // @NotNull
     @Column(name = "username")

@@ -12,10 +12,10 @@ import java.util.Set;
 @Table(name = "branches")
 public class BranchTransportCenter extends User {
 
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "branch_id")
-    private Long branchId;
+   // @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(name = "branch_id")
+//    private Long branchId;
 
    // @NotNull
     @Column(name = "branch_name")
@@ -53,13 +53,13 @@ public class BranchTransportCenter extends User {
 //        this.role.setRoleName("BRANCH");
 //    }
 
-    public Long getBranchId() {
-        return branchId;
-    }
-
-    public void setBranchId(Long branchId) {
-        this.branchId = branchId;
-    }
+//    public Long getBranchId() {
+//        return branchId;
+//    }
+//
+//    public void setBranchId(Long branchId) {
+//        this.branchId = branchId;
+//    }
 
     public String getBrunchName() {
         return brunchName;
