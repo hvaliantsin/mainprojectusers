@@ -19,10 +19,10 @@ public class BranchTransportCenter extends User {
     @Column(name = "branch_name")
     private String brunchName;
 
-    @OneToMany
+    @OneToMany(mappedBy = "tasks", cascade = CascadeType.ALL)
     private Set<DeliveryTask> tasks = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
     private Set<Employee> employees = new HashSet<>();
 
     @Override

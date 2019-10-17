@@ -23,12 +23,15 @@ public class DeliveryTask {
     private String address;
 
     @ManyToOne
+    @JoinColumn(name = "branch_id")
     private BranchTransportCenter branch;
 
     @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @ManyToOne
+    @JoinColumn(name = "emp_id")
     private Employee employee;
 
     public Long getDtId() {

@@ -18,9 +18,10 @@ public class Employee extends User {
     private Double income;
 
     @ManyToOne
+    @JoinColumn(name = "task_id")
     private BranchTransportCenter branchTransportCenter;
 
-    @OneToMany
+    @OneToMany(mappedBy = "tasks", cascade = CascadeType.ALL)
     private Set<DeliveryTask> deliveryTasks;
 
     @Override

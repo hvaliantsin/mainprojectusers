@@ -15,7 +15,7 @@ public class Customer extends User {
     @Column(name = "customer_id")
     private Long customerId;
 
-    @OneToMany
+    @OneToMany(mappedBy = "tasks", cascade = CascadeType.ALL)
     private Set<DeliveryTask> deliveryTask = new HashSet<>();
 
     @Override

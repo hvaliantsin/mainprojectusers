@@ -20,7 +20,7 @@ public abstract class User {
     protected String email;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "users_role", joinColumns = {@JoinColumn(name = "uid")},inverseJoinColumns = {@JoinColumn(name = "role_id")})
+    @JoinColumn(name = "role_id")
     protected Role role;
 
     public abstract void setRole();
