@@ -17,13 +17,31 @@ public class BranchTransportCenter extends User {
     @Column(name = "branch_id")
     private Long branchId;
 
-    @NotNull
+   // @NotNull
     @Column(name = "branch_name")
     private String brunchName;
 
     @Column(name = "branch_address")
-    p
+    private String brunchAddress;
 
+    @Column(name = "branch_phone")
+    private Long phoneNumber;
+
+    public String getBrunchAddress() {
+        return brunchAddress;
+    }
+
+    public void setBrunchAddress(String brunchAddress) {
+        this.brunchAddress = brunchAddress;
+    }
+
+    public Long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 //    @OneToMany(mappedBy = "tasks", cascade = CascadeType.ALL)
 //    private Set<DeliveryTask> tasks = new HashSet<>();
 //

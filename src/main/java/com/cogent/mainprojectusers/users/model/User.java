@@ -5,18 +5,19 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @MappedSuperclass
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class User implements Serializable {
     @Id
     @Column(name = "uid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long userId;
-    @NotNull
+   // @NotNull
     @Column(name = "username")
     protected String username;
-    @NotNull
-    @Column(name = "full_name")
-    protected String fullName;
-    @NotNull
+    //@NotNull
+    @Column(name = "password")
+    protected String password;
+    //@NotNull
     @Column(name = "email")
     protected String email;
 
@@ -44,12 +45,12 @@ public abstract class User implements Serializable {
         this.username = username;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getPassword() {
+        return password;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setPassword(String fullName) {
+        this.password = fullName;
     }
 
     public String getEmail() {
