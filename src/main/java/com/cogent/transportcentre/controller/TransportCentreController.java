@@ -33,8 +33,11 @@ public class TransportCentreController {
         TransportCentre flag=tcService.addTransportCentre(transportCentre);
         if (flag == null)
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+
+        //add mail
         HttpHeaders header = new HttpHeaders();
-        header.setLocation(builder.path("/product/{prdId}").buildAndExpand(transportCentre.getTcId()).toUri());
+        header.setLocation(builder.path("/{prdId}").buildAndExpand(transportCentre.getTcId()).toUri());
+
         return  new ResponseEntity<Void>(header, HttpStatus.CREATED);
     }
 

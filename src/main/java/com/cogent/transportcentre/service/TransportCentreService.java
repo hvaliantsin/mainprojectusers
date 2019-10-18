@@ -13,8 +13,8 @@ public class TransportCentreService {
     @Autowired
     private TransportCentreRepository tcRepository;
 
-    public TransportCentre getTransportCentreById(Long prdId){
-        TransportCentre prd=tcRepository.findById(prdId).get();
+    public TransportCentre getTransportCentreById(Long tcId){
+        TransportCentre prd=tcRepository.findById(tcId).get();
         return prd;
     }
 
@@ -23,15 +23,15 @@ public class TransportCentreService {
         tcRepository.findAll().forEach(e->list.add(e));
         return list;
     }
-    public TransportCentre addTransportCentre(TransportCentre prd){
-        TransportCentre list = tcRepository.save(prd);
+    public TransportCentre addTransportCentre(TransportCentre tc){
+        TransportCentre list = tcRepository.save(tc);
         return list;
     }
-    public void updateTransportCentre(TransportCentre prd){
-        tcRepository.save(prd);
+    public void updateTransportCentre(TransportCentre tc){
+        tcRepository.save(tc);
     }
-    public void deleteTransportCentre(Long prdId){
-        tcRepository.deleteById(prdId);
+    public void deleteTransportCentre(Long tcId){
+        tcRepository.deleteById(tcId);
     }
 
 }

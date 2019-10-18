@@ -1,5 +1,9 @@
 package com.cogent.transportcentre.model;
 
+import com.cogent.staff.model.Staff;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +21,17 @@ public class TransportCentre {
     private Long tcPhoneNumber;
     @Column(name = "tc_email")
     private String tcEmail;
+    @JsonManagedReference
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "tc")
+    private Staff staff;
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
 
     public Long getTcId() {
         return tcId;
