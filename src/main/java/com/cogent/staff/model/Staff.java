@@ -19,7 +19,7 @@ public class Staff {
     @Column(name = "staff_name")
     private String staffName;
     @Column(name = "date_of_joining")
-    private LocalDate dateOfJoining;
+    private LocalDate dateOfJoining = LocalDate.now();
     @Column(name = "base_salary")
     private Float baseSalary;
     @Column(name = "hra")
@@ -74,7 +74,7 @@ public class Staff {
     }
 
     public void setDateOfJoining(LocalDate dateOfJoining) {
-        this.dateOfJoining = dateOfJoining;
+
     }
 
     public Float getBaseSalary() {
