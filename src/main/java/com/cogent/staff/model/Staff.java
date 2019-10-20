@@ -34,8 +34,8 @@ public class Staff {
     @Column(name = "role")
     private Role role;
     @JsonBackReference
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @MapsId
+    @ManyToOne
+    @JoinColumn(name = "tc_id")
     private TransportCentre tc;
 
     public Staff() {
@@ -69,7 +69,7 @@ public class Staff {
         this.staffName = staffName;
     }
 
-    private LocalDate getDateOfJoining() {
+    public LocalDate getDateOfJoining() {
         return dateOfJoining;
     }
 

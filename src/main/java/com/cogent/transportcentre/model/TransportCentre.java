@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "transport_centres")
@@ -22,15 +23,16 @@ public class TransportCentre {
     @Column(name = "tc_email")
     private String tcEmail;
     @JsonManagedReference
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "tc")
-    private Staff staff;
+    @OneToMany(mappedBy = "tc", cascade = CascadeType.ALL)
+    private Set<Staff> staffSet;
 
-    public Staff getStaff() {
-        return staff;
+
+    public Set<Staff> getStaffSet() {
+        return staffSet;
     }
 
-    public void setStaff(Staff staff) {
-        this.staff = staff;
+    public void setStaffSet(Set<Staff> staffSet) {
+        this.staffSet = staffSet;
     }
 
     public Long getTcId() {
