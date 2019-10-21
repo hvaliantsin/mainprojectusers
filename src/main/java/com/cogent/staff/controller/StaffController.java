@@ -1,5 +1,6 @@
 package com.cogent.staff.controller;
 
+import com.cogent.mailsender.MailSender;
 import com.cogent.staff.model.Staff;
 import com.cogent.staff.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +35,9 @@ public class StaffController {
         Staff flag=staffService.addStaff(staff);
         if (flag == null)
             return new ResponseEntity<>(HttpStatus.CONFLICT);
-        //add mail
         HttpHeaders header = new HttpHeaders();
         header.setLocation(builder.path("/staff/{prdId}").buildAndExpand(staff.getStaffId()).toUri());
+        MailSender.sendGreetingMailToStaff(staff);
         return  new ResponseEntity<>(header, HttpStatus.CREATED);
     }
 
