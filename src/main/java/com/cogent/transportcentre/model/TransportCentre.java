@@ -1,7 +1,8 @@
 package com.cogent.transportcentre.model;
 
+import com.cogent.consignment.model.Consignment;
 import com.cogent.staff.model.Staff;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -22,10 +23,16 @@ public class TransportCentre {
     private Long tcPhoneNumber;
     @Column(name = "tc_email")
     private String tcEmail;
-    @JsonManagedReference
+    //@JsonManagedReference
+    @JsonIgnoreProperties(value = "tc", allowSetters = true)
     @OneToMany(mappedBy = "tc", cascade = CascadeType.ALL)
     private Set<Staff> staffSet;
+    @JsonIgnoreProperties(value = "consDeliveryLoc", allowSetters = true)
+    @OneToMany(mappedBy = "consDeliveryLoc", cascade = CascadeType.ALL)
+    private Set<Consignment> consignments;
 
+    public TransportCentre() {
+    }
 
     public Set<Staff> getStaffSet() {
         return staffSet;
@@ -73,5 +80,13 @@ public class TransportCentre {
 
     public void setTcEmail(String tcEmail) {
         this.tcEmail = tcEmail;
+    }
+
+    public Set<Consignment> getConsignments() {
+        return consignments;
+    }
+
+    public void setConsignments(Set<Consignment> consignments) {
+        this.consignments = consignments;
     }
 }

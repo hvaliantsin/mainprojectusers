@@ -3,6 +3,7 @@ package com.cogent.staff.model;
 import com.cogent.staff.model.Role;
 import com.cogent.transportcentre.model.TransportCentre;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -33,7 +34,8 @@ public class Staff {
     private String email;
     @Column(name = "role")
     private Role role;
-    @JsonBackReference
+    //@JsonBackReference
+    @JsonIgnoreProperties(value = "staffSet", allowSetters = true)
     @ManyToOne
     @JoinColumn(name = "tc_id")
     private TransportCentre tc;

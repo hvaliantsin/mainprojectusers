@@ -6,15 +6,14 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
 public class MailSender {
-    @Autowired
-    private static JavaMailSender javaMailSender;
 
-    public static void sendGreetingMailToStaff(Staff staff){
+    public static void sendGreetingMailToStaff(Staff staff, JavaMailSender javaMailSender){
         SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setFrom("Admin");
         msg.setTo(staff.getEmail());
         msg.setSubject("Welcome to the system, "+staff.getStaffName());
         msg.setText("Welcome to Spring Boot Email\n Here is your account:\nYour Name: "+staff.getStaffName()+"\nYour Role: "+staff.getRole()
-        +"\nYour income: "+ (staff.getBaseSalary()+staff.getHouseRateAllowance()+staff.getTuitionAssistance()+staff.getIncentive()));
+        +"\nYour id: "+ staff.getStaffId()+"\n Your department: "+staff.getTc().getTcName());
 
         javaMailSender.send(msg);
     }

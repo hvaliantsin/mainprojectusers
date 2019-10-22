@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -17,6 +18,9 @@ import java.util.List;
 public class StaffController {
     @Autowired
     private StaffService staffService;
+    @Autowired
+    private JavaMailSender javaMailSender;
+
 
     @GetMapping("/{prdId}")
     public ResponseEntity getStaffById(@PathVariable("staffId") Long staffId){
@@ -37,7 +41,7 @@ public class StaffController {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         HttpHeaders header = new HttpHeaders();
         header.setLocation(builder.path("/staff/{prdId}").buildAndExpand(staff.getStaffId()).toUri());
-        MailSender.sendGreetingMailToStaff(staff);
+        MailSender.sendGreetingMailToStaff(staff, javaMailSender);
         return  new ResponseEntity<>(header, HttpStatus.CREATED);
     }
 

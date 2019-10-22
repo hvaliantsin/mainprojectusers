@@ -31,7 +31,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> addProduct(@RequestBody Client client, UriComponentsBuilder builder){
+    public ResponseEntity<Void> addClient(@RequestBody Client client, UriComponentsBuilder builder){
         Client flag=clientService.addClient(client);
         if (flag == null)
             return new ResponseEntity<>(HttpStatus.CONFLICT);

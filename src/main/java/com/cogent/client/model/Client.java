@@ -1,8 +1,13 @@
 package com.cogent.client.model;
 
 
+import com.cogent.consignment.model.Consignment;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.Set;
 
 @Entity
 @Table(name = "clients")
@@ -20,8 +25,19 @@ public class Client {
     private String clientPhoneNumber;
     @Column(name = "client_address")
     private String clientAddress;
+    @JsonIgnoreProperties(value = "consClient", allowSetters = true)
+    @OneToMany(mappedBy = "consId", cascade = CascadeType.ALL)
+    private Set<Consignment> consignments;
 
     public Client() {
+    }
+
+    public Set<Consignment> getConsignments() {
+        return consignments;
+    }
+
+    public void setConsignments(Set<Consignment> consignments) {
+        this.consignments = consignments;
     }
 
     public Long getClientId() {
