@@ -62,7 +62,7 @@
                 <div class="modal-body" *ngFor="let consignment of consignmentlist " >  
                     <div [hidden]="isupdated">  
       
-                        <input type="hidden" class="form-control"  formControlName="student_id" [(ngModel)]="student.student_id">  
+                        <input type="hidden" class="form-control"  formControlName="consignment_id" [(ngModel)]="consignment.consignment_id">  
                                 <div class="form-group">  
                                     <label for="name">Consignment Id</label>  
                                     <input type="text" class="form-control"  formControlName="consignment_id" [(ngModel)]="consignment.consignment_id">  

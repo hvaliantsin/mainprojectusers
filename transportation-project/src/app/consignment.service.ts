@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ConsignmentService {
-  private baseUrl = 'http://localhost:8080/api';
+  private baseUrl = 'http://localhost:8080/consignment';
   constructor(private http:HttpClient) { }
 
   getConsignmentList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`+'/consignment-get');
+    return this.http.get(`${this.baseUrl}`+'');
   }
 
   deleteConsignment(id: number): Observable<any> {
@@ -25,7 +25,7 @@ export class ConsignmentService {
     return this.http.put(`${this.baseUrl}`+'/'+`${id}`, value);
   }
 
-  createConsignment(student: object): Observable<object> {
-    return this.http.post(`${this.baseUrl}`+'/', student)
+  createConsignment(consignment: object): Observable<object> {
+    return this.http.post(`${this.baseUrl}`+'/', consignment)
   }
 }
