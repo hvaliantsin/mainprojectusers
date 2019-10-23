@@ -1,0 +1,120 @@
+<div class="panel panel-default">  
+    <div class="panel-heading">  
+        <h1 style="text-align: center">Consignments</h1><br>  
+        <div class="row" [hidden]="!deleteMessage">  
+               
+                  <div class="col-sm-4"></div>  
+                  <div class="col-sm-4">  
+                          <div class="alert alert-info alert-dismissible">  
+                                  <button type="button" class="close" data-dismiss="alert">×</button>  
+                                  <strong>Consignment Data Deleted</strong>  
+                          </div>  
+                  </div>  
+                  <div class="col-sm-4"></div>  
+          </div>             
+      </div>  
+    
+      
+    <div class="panel-body">  
+        <table  class="table table-hover table-sm" datatable [dtOptions]="dtOptions"  
+        [dtTrigger]="dtTrigger"  >  
+            <thead class="thead-light">  
+                <tr>  
+                    <th>Consignment Id</th>  
+                    <th>Consignment Type</th>  
+                    <th>Consignment Weight</th>
+                    <th>Consignment Date</th>
+                    <th>Consignment Delivery Date</th>
+                    <th>Consignment Delivery Address</th>
+                    <th>Consignment Amount</th>  
+                    <th>Action</th>  
+                      
+                </tr>  
+            </thead>  
+            <tbody>  
+                 <tr *ngFor="let consignment of consignmentlist ">  
+                    <td>{{consignment.consignment_id}}</td>  
+                    <td>{{consignment.consignment_type}}</td>  
+                    <td>{{consignment.consignment_weight}}</td>
+                    <td>{{consignment.consignment_date}}</td>
+                    <td>{{consignment.consignment_del_date}}</td>
+                    <td>{{consignment.consignment_del_address}}</td>  
+                    <td>{{consignment.consignment_amount}}</td>
+                    <td><button (click)="deleteConsignment(consignment.consignment_id)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>   
+                      <button (click)="updateConsignment(consignment.consignment_id)" class='btn btn-info' data-toggle="modal" data-target="#myModal">Update</button>  
+                    </td>  
+                  </tr>   
+            </tbody><br>  
+        </table>  
+    </div>  
+  </div>  
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <form [formGroup]="consignmentupdateform" #updstu (ngSubmit)="updateCons(updcons)">  
+                <!-- Modal Header -->  
+                <div class="modal-header">  
+                  <h4 class="modal-title" style="text-align: center">Update Consignment</h4>  
+                    
+                </div>  
+                  
+                <!-- Modal body -->  
+                <div class="modal-body" *ngFor="let consignment of consignmentlist " >  
+                    <div [hidden]="isupdated">  
+      
+                        <input type="hidden" class="form-control"  formControlName="student_id" [(ngModel)]="student.student_id">  
+                                <div class="form-group">  
+                                    <label for="name">Consignment Id</label>  
+                                    <input type="text" class="form-control"  formControlName="consignment_id" [(ngModel)]="consignment.consignment_id">  
+                                </div>  
+                          
+                                <div class="form-group">  
+                                    <label for="name">Consignment Type</label> 
+                                    <select class="form-control" formControlName="consignment_type" required>
+                                        <option value="Value1" [selected] ="'Value1' == consignment.consignment_type">Value1</option>
+                                        <option value="Value2" [selected] ="'Value2' == consignment.consignment_type">Value2</option>
+                                    </select>   
+                                </div>
+
+                                <div>
+                                    <label for="name">Consignment Weight</label>
+                                    <input type="text" class="form-control" formControlName="consignment_weight" [(ngModel)]="consignment.consignment_weight">
+                                </div>             
+
+                                <div>
+                                    <label for="name">Consignment Date</label>
+                                    <input type="text" class="form-control" formControlName="consignment_date" [(ngModel)]="consignment.consignment_date">
+                                </div>
+                                
+                                <div>
+                                    <label for="name">Consignment Delivery Date</label>
+                                    <input type="text" class="form-control" formControlName="consignment_del_date" [(ngModel)]="consignment.consignment_del_date">
+                                </div>
+
+                                <div>
+                                    <label for="name">Consignment Delivery Address</label>
+                                    <input type="text" class="form-control" formControlName="consignment_del_address" [(ngModel)]="consignment.consignment_del_address">
+                                </div>
+
+                                <div>
+                                    <label for="name">Consignment Amount</label>
+                                    <input type="text" class="form-control" formControlName="consignment_amount" [(ngModel)]="consignment.consignment_amount">
+                                </div>
+                                    
+                      </div>    
+                      <div [hidden]="!isupdated">  
+                          <h4>Consignment Detail Updated!</h4>  
+                      </div>          
+                          
+                </div>  
+                  
+                <!-- Modal footer -->  
+                <div class="modal-footer" >  
+                  <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>  
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>  
+                </div>  
+                  
+            </form>  
+            </div>
+          </div>
+        </div>

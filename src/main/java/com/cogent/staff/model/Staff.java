@@ -10,6 +10,11 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.time.LocalDate;
 
+
+// add formula
+// add temporal
+// add creationtimestamp
+// add
 @Entity
 @Table(name = "staff")
 public class Staff {

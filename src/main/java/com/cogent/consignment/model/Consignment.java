@@ -35,8 +35,8 @@ public class Consignment {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client consClient;
-    @Column(name = "cons_del_ammount")
-    private Float consDeliveryAmmount;
+    @Column(name = "cons_del_amount")
+    private Float consDeliveryAmount;
 
     public Consignment() {
     }
@@ -105,11 +105,11 @@ public class Consignment {
         this.consClient = consClient;
     }
 
-    public Float getConsDeliveryAmmount() {
-        return consDeliveryAmmount;
+    public Float getConsDeliveryAmount() {
+        return consDeliveryAmount;
     }
 
-    public void setConsDeliveryAmmount(Float consDeliveryAmmount) {
-        this.consDeliveryAmmount = consDeliveryAmmount;
+    public void setConsDeliveryAmount(Float consDeliveryAmmount) {
+        this.consDeliveryAmount = consDeliveryAmmount;
     }
 }
