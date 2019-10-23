@@ -37,12 +37,31 @@ export class BookConsignmentComponent implements OnInit {
     this.save();
   }
   save(){
-    this.consignmentservice.createConsignment(this.consignment).subscribe(data => console.log(data), error = console.log(error));
+    //this.consignmentservice.createConsignment(this.consignment).subscribe(data => console.log(data), error = console.log(error));
+    this.consignmentservice.createConsignment(this.consignment).subscribe(data => console.log(data), error => console.log(error))
     this.consignment = new Consignment();
   }
   get ConsignmentType(){
     return this.consignmentsaveform.get('consignment_type');
   }
-  get Consignment
+  get ConsignmentWeight(){
+    return this.consignmentsaveform.get('consignment_weight');
+  }
+  get ConsignmentDate(){
+    return this.consignmentsaveform.get('consignment_date');
+  }
+  get ConsignmentDeliveryDate(){
+    return this.consignmentsaveform.get('consignment_del_date');
+  }
+  get ConsignmentDeliveryAddress(){
+    return this.consignmentsaveform.get('consignment_del_addres');
+  }
+  get ConsignmentAmount(){
+    return this.consignmentsaveform.get('consignment_amount');
+  }
 
+  addConsignmentForm(){
+    this.submitted=false;
+    this.consignmentsaveform.reset();
+  }
 }

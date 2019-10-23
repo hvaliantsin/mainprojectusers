@@ -1,1 +1,49 @@
-<p>book-consignment works!</p>
+<h2>Book Consignment</h2>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="submitted" style="width: 400 px;">
+            <form [formGroup]="consignmentsaveform" #saveconsignment (ngSubmit)="saveConsignment(saveConsignment)">
+                <div class="form-group">
+                    <label for="type">
+                        Consignment Type
+                    </label>
+                    <input type="text" class="form-control" formControlName="consignment_type" data-toggle="tooltip" data-placement="right" title="Enter Consignment Type">
+                    <div class="alert alert-danger" *ngIf="(ConsignmentType.touched)&&(ConsignmentType.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="ConsignmentType.errors.required">
+                            Consignment Type is Required
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="type">
+                        Consignment Weight
+                    </label>
+                    <input type="text" class="form-control" formControlName="consignment_weight" data-toggle="tooltip" data-placement="right" title="Enter Consignment Weight">
+                    <div class="alert alert-danger" *ngIf="(ConsignmentWeight.touched)&&(ConsignmentWeight.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="ConsignmentWeight.errors.required">
+                            Consignment Type is Required
+                        </span>
+                    </div>
+                </div>
+                <button class="submit" class="btn btn-success">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+</div>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="!submitted">
+            <h4>
+                Consignment Added!
+            </h4>
+            <button (click) = "addConsignmentForm()" class='btn btn-primary'>Add Consignment</button>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
