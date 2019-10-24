@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
-
+@CrossOrigin
 @RequestMapping("/staff")
 @RestController
 public class StaffController {

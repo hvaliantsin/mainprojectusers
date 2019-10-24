@@ -1,0 +1,75 @@
+<h2>add-transportcentre works!</h2>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="submitted" style="width: 400 px;">
+            <form [formGroup]="transportcentresaveform" #savetransportcenre (ngSubmit)="saveTransportcentre(saveTransportcentre)">
+                <div class="form-group">
+                    <label for="name">
+                        Transport Centre Name
+                    </label>
+                    <input type="text" class="form-control" formControlName="tcName" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Name">
+                    <div class="alert alert-danger" *ngIf="(TransportcentreName.touched)&&(TransportcentreName.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="TransportcentreName.errors.required">
+                            Transport Centre Name is Required
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">
+                        Transport Centre Address
+                    </label>
+                    <input type="text" class="form-control" formControlName="tcAddress" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Address">
+                    <div class="alert alert-danger" *ngIf="(TransportcentreAddress.touched)&&(TransportcentreAddress.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="TransportcentreAddress.errors.required">
+                            Transport Centre Address is Required
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone number">
+                        Transport Centre Phone Number
+                    </label>
+                    <input type="text" class="form-control" formControlName="tcPhoneNumber" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Phone Number">
+                    <div class="alert alert-danger" *ngIf="(TransportcentrePhoneNumber.touched)&&(TransportcentrePhoneNumber.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="TransportcentrePhoneNumber.errors.required">
+                            Transport Centre Phone Number is Required
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tcEmail">
+                        Transport Centre Email
+                    </label>
+                    <input type="text" class="form-control" formControlName="tcEmail" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Email">
+                    <div class="alert alert-danger" *ngIf="(TransportcentreEmail.touched)&&(TransportcentreEmail.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="TransportcentreEmail.errors.required">
+                            Transport Centre Email is Required
+                        </span>
+                    </div>
+                </div>
+
+                <button class="submit" class="btn btn-success">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+</div>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="!submitted">
+            <h4>
+                Transport Centre Added!
+            </h4>
+            <button (click) = "addTransportCentreForm()" class='btn btn-primary'>Add Transport Centre</button>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>

@@ -57,24 +57,25 @@ export class ConsignmentListComponent implements OnInit {
         error => console.log(error));
   }
 consignmentupdateform=new FormGroup({
-    consignment_id:new FormControl(),
-    consignment_type: new FormControl(),
-    consignment_weight:new FormControl(),
-    consignment_date:new FormControl(),
-    consignment_del_date:new FormControl(),      //////////
-    consignment_del_address:new FormControl(),
-    consignment_amount: new FormControl()
+    consId:new FormControl(),
+    type: new FormControl(),
+    consWeight:new FormControl(),
+    consDate:new FormControl(),
+    consDeliveryDate:new FormControl(),      //////////
+    consDeliveryAddress:new FormControl(),
+    consDeliveryAmount: new FormControl()
 });
 updateCons(updcons){
   this.consignment = new Consignment();
-  this.consignment.consignment_id = this.ConsignmentId.value;
-  this.consignment.consignment_type = this.ConsignmentType.value;
-  this.consignment.consignment_weight = this.ConsignmentWeight.value;
-  this.consignment.consignment_date = this.ConsignmentDate.value;
-  this.consignment.consignment_del_date = this.ConsignmentDeliveryDate.value;
-  this.consignment.consignment_amount = this.ConsignmentAmount.value;
+  this.consignment.consId = this.ConsignmentId.value;
+  this.consignment.type = this.ConsignmentType.value;
+  this.consignment.consWeight = this.ConsignmentWeight.value;
+  this.consignment.consDate = this.ConsignmentDate.value;
+  this.consignment.consDeliveryDate = this.ConsignmentDeliveryDate.value;
+  this.consignment.consDeliveryAddress = this.ConsignmentDeliveryAddress.value;
+  this.consignment.consDeliveryAmount = this.ConsignmentAmount.value;
   console.log(this.ConsignmentType.value);
-  this.consignmentservice.updateConsignment(this.consignment.consignment_id,this.consignment).subscribe(
+  this.consignmentservice.updateConsignment(this.consignment.consId,this.consignment).subscribe(
     data => {
       this.isupdated=true;
       this.consignmentservice.getConsignmentList().subscribe(data =>{
@@ -84,22 +85,25 @@ updateCons(updcons){
     error => console.log(error));
 }
 get ConsignmentType(){
-  return this.consignmentupdateform.get('consignment_type');
+  return this.consignmentupdateform.get('type');
 }
 get ConsignmentWeight(){
-  return this.consignmentupdateform.get('consignment_weight');
+  return this.consignmentupdateform.get('consWeight');
 }
 get ConsignmentId(){
-  return this.consignmentupdateform.get('consignment_id');
+  return this.consignmentupdateform.get('consId');
 }
 get ConsignmentDate(){
-  return this.consignmentupdateform.get('consignment_date');
+  return this.consignmentupdateform.get('consDate');
 }
 get ConsignmentDeliveryDate(){
-  return this.consignmentupdateform.get('consignment_del_date');
+  return this.consignmentupdateform.get('consDeliveryDate');
+}
+get ConsignmentDeliveryAddress(){
+  return this.consignmentupdateform.get('consDeliveryAddress')
 }
 get ConsignmentAmount(){
-  return this.consignmentupdateform.get('consignment_amount');
+  return this.consignmentupdateform.get('consDeliveryAmount');
 }
 changeisUpdate(){
   this.isupdated=false;

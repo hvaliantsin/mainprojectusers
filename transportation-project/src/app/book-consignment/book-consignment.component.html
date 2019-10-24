@@ -8,7 +8,7 @@
                     <label for="type">
                         Consignment Type
                     </label>
-                    <input type="text" class="form-control" formControlName="consignment_type" data-toggle="tooltip" data-placement="right" title="Enter Consignment Type">
+                    <input type="text" class="form-control" formControlName="type" data-toggle="tooltip" data-placement="right" title="Enter Consignment Type">
                     <div class="alert alert-danger" *ngIf="(ConsignmentType.touched)&&(ConsignmentType.invalid)" style="margin-top: 5px;">
                         <span *ngIf="ConsignmentType.errors.required">
                             Consignment Type is Required
@@ -19,7 +19,7 @@
                     <label for="type">
                         Consignment Weight
                     </label>
-                    <input type="text" class="form-control" formControlName="consignment_weight" data-toggle="tooltip" data-placement="right" title="Enter Consignment Weight">
+                    <input type="text" class="form-control" formControlName="consWeight" data-toggle="tooltip" data-placement="right" title="Enter Consignment Weight">
                     <div class="alert alert-danger" *ngIf="(ConsignmentWeight.touched)&&(ConsignmentWeight.invalid)" style="margin-top: 5px;">
                         <span *ngIf="ConsignmentWeight.errors.required">
                             Consignment Type is Required

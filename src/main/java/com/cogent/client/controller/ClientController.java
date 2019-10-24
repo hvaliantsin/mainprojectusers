@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
+
+@CrossOrigin
 @RequestMapping("/client")
 @RestController
 public class ClientController {

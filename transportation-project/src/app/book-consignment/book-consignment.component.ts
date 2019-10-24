@@ -17,22 +17,21 @@ export class BookConsignmentComponent implements OnInit {
     this.submitted=false;
   }
   consignmentsaveform = new FormGroup({
-    consignment_type: new FormControl(),
-    consignment_weight:new FormControl(),
-    consignment_date:new FormControl(),          //////////
-    consignment_del_date:new FormControl(),      //////////
-    consignment_del_address:new FormControl(),
-    consignment_amount:new FormControl()
+    type: new FormControl(),
+    consWeight:new FormControl(),
+    consDate:new FormControl(),          //////////
+    consDeliveryDate:new FormControl(),      //////////
+    consDeliveryLoc:new FormControl(),
+    consDeliveryAmount:new FormControl()
   });
 
   saveConsignment(saveConsignment){
     this.consignment = new Consignment();
-    this.consignment.consignment_type=this.ConsignmentType.value;
-    this.consignment.consignment_weight=this.ConsignmentWeight.value;
-    this.consignment.consignment_date=this.ConsignmentDate.value;
-    this.consignment.consignment_del_date=this.ConsignmentDeliveryDate.value;
-    this.consignment.consignment_del_address=this.ConsignmentDeliveryAddress.value;
-    this.consignment.consignment_amount=this.ConsignmentAmount.value;
+    this.consignment.type=this.ConsignmentType.value;
+    this.consignment.consWeight=this.ConsignmentWeight.value;
+    
+   
+    
     this.submitted=true;
     this.save();
   }
@@ -42,22 +41,22 @@ export class BookConsignmentComponent implements OnInit {
     this.consignment = new Consignment();
   }
   get ConsignmentType(){
-    return this.consignmentsaveform.get('consignment_type');
+    return this.consignmentsaveform.get('type');
   }
   get ConsignmentWeight(){
-    return this.consignmentsaveform.get('consignment_weight');
+    return this.consignmentsaveform.get('consWeight');
   }
   get ConsignmentDate(){
-    return this.consignmentsaveform.get('consignment_date');
+    return this.consignmentsaveform.get('consDate');
   }
   get ConsignmentDeliveryDate(){
-    return this.consignmentsaveform.get('consignment_del_date');
+    return this.consignmentsaveform.get('consDeliveryDate');
   }
   get ConsignmentDeliveryAddress(){
-    return this.consignmentsaveform.get('consignment_del_addres');
+    return this.consignmentsaveform.get('consDeliveryLoc');
   }
   get ConsignmentAmount(){
-    return this.consignmentsaveform.get('consignment_amount');
+    return this.consignmentsaveform.get('consDeliveryAmount');
   }
 
   addConsignmentForm(){

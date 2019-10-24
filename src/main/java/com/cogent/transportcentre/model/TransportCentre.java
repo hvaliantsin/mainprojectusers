@@ -3,7 +3,7 @@ package com.cogent.transportcentre.model;
 import com.cogent.consignment.model.Consignment;
 import com.cogent.staff.model.Staff;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 import javax.persistence.*;
 import java.util.Set;

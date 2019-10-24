@@ -8,12 +8,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { ConsignmentListComponent } from './consignment-list/consignment-list.component';
+import { AddTransportcentreComponent } from './add-transportcentre/add-transportcentre.component';
+import { ListTransportcentreComponent } from './list-transportcentre/list-transportcentre.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookConsignmentComponent,
-    ConsignmentListComponent
+    ConsignmentListComponent,
+    AddTransportcentreComponent,
+    ListTransportcentreComponent
   ],
   imports: [
     BrowserModule,

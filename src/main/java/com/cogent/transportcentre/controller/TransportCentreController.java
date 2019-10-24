@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
+@CrossOrigin
 @RequestMapping("/transportcentre")
 @RestController
 public class TransportCentreController {
