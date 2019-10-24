@@ -1,1 +1,81 @@
-<p>list-transportcentre works!</p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 style="text-align: center">Transport centres</h1><br>
+        <div class="row" [hidden]="!deleteMessage">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-info alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">
+                        ×
+                    </button>
+                    <strong>
+                        Transport Centre Deleted
+                    </strong>
+                </div>
+            </div>
+            <div class="col-sm-4">
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover table-sm" datatable [dtOptions]="dtOptions"
+        [dtTrigger]="dtTrigger">
+            <thead class="thead-light">
+                <tr>
+                    <th>Transport Centre Id</th>
+                    <th>Transport Centre Name</th>
+                    <th>Transport Centre Address</th>
+                    <th>Transport Centre Phone Number</th>
+                    <th>Transport Centre Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transportcentre of transportcentres">
+                    <td>{{transportcentre.tcId}}</td>
+                    <td>{{transportcentre.tcName}}</td>
+                    <td>{{transportcentre.tcAddress}}</td>
+                    <td>{{transportcentre.tcPhoneNumber}}</td>
+                    <td>{{transportcentre.tcEmail}}</td>
+                    <td>
+                        <button (click)="deleteTransportcentre(transportcentre.tcId)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>
+                        <button (click)="updateTransportcentre(transportcentre.tcId)" class='btn btn-info' data-toggle="modal" data-target="#myModal">updateTransportcentre</button>
+                    </td>
+                </tr>
+            </tbody><br>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="#myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form [formGroup]="transportcentreupdateform" #updstu (ngSubmit)="updateTc(updtc)">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align: center">Update Transport Centre</h4>
+                </div>
+                <div class="modal-body" *ngFor="let transportcentre of transportcentrelist">
+                    <div [hidden]="isupdated">
+                        <!-- Name -->
+                        <input type="hidden" class="form-control" formControlName="consId" [(ngModel)]="transportcentre.tcId">
+                        <div class="form-group">
+                            <label for="name">Transport Centre Name</label>
+                            <input type="text" class="form-control" formControlName="tcName" [(ngModel)]="transportcentre.tcName">
+                        </div>
+                        <!-- Address -->
+                        <!-- Phone Number -->
+                        <!-- Email -->
+
+                    </div>
+                    <div [hidden]="!isupdated">
+                        <h4>Transport Centre Updated!</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

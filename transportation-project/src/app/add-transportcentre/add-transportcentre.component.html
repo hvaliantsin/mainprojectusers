@@ -32,7 +32,8 @@
                     <label for="phone number">
                         Transport Centre Phone Number
                     </label>
-                    <input type="text" class="form-control" formControlName="tcPhoneNumber" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Phone Number">
+                    <input type="tel"
+                    required class="form-control" formControlName="tcPhoneNumber" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Phone Number">
                     <div class="alert alert-danger" *ngIf="(TransportcentrePhoneNumber.touched)&&(TransportcentrePhoneNumber.invalid)" style="margin-top: 5px;">
                         <span *ngIf="TransportcentrePhoneNumber.errors.required">
                             Transport Centre Phone Number is Required
@@ -44,7 +45,7 @@
                     <label for="tcEmail">
                         Transport Centre Email
                     </label>
-                    <input type="text" class="form-control" formControlName="tcEmail" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Email">
+                    <input type="email" class="form-control" formControlName="tcEmail" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Email">
                     <div class="alert alert-danger" *ngIf="(TransportcentreEmail.touched)&&(TransportcentreEmail.invalid)" style="margin-top: 5px;">
                         <span *ngIf="TransportcentreEmail.errors.required">
                             Transport Centre Email is Required
@@ -68,7 +69,7 @@
             <h4>
                 Transport Centre Added!
             </h4>
-            <button (click) = "addTransportCentreForm()" class='btn btn-primary'>Add Transport Centre</button>
+            <button (click) = "addTransportcentreForm()" class='btn btn-primary'>Add Transport Centre</button>
         </div>
     </div>
     <div class="col-sm-4"></div>

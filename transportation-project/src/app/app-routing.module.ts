@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { BookConsignmentComponent } from './book-consignment/book-consignment.component';
 import { ConsignmentListComponent } from './consignment-list/consignment-list.component';
 import { AddTransportcentreComponent } from './add-transportcentre/add-transportcentre.component';
+import { ListTransportcentreComponent } from './list-transportcentre/list-transportcentre.component';
 
 
 const routes: Routes = [
-  {path:'', redirectTo:'view-consignment', pathMatch:"full"},
+  // {path:'', redirectTo:'view-consignment', pathMatch:"full"},
   {path:'view-consignment',component:ConsignmentListComponent},
   {path:'book-consignment',component:BookConsignmentComponent},
-  {path:'add-transportcentre',component:AddTransportcentreComponent}
+  {path:'add-transportcentre',component:AddTransportcentreComponent},
+  {path:'list-transportcentre',component:ListTransportcentreComponent}
 ];
 
 @NgModule({
