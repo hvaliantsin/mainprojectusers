@@ -25,7 +25,7 @@ export class TransportcentreService {
     return this.http.put(`${this.baseUrl}`+'/'+`${id}`, value);
   }
 
-  createTransportcentre(consignment: object): Observable<object> {
-    return this.http.post(`${this.baseUrl}`+'/', consignment)
+  createTransportcentre(transportcentre: object): Observable<object> {
+    return this.http.post(`${this.baseUrl}`+'/', transportcentre)
   }
 }

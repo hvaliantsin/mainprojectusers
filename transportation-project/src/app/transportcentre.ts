@@ -4,6 +4,5 @@ export class Transportcentre {
     tcAddress: string;
     tcPhoneNumber: number;
     tcEmail: string;
-    staffSet: any;
-    consignments: any;
+
 }
