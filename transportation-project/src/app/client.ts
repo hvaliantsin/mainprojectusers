@@ -6,5 +6,4 @@ export class Client {
     clientEmail:string;
     clientPhoneNumber:string;
     clientAddress:string;
-    consignment:Set<Consignment>;
 }

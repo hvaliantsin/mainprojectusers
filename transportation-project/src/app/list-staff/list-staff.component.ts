@@ -56,10 +56,12 @@ staffupdateform = new FormGroup({
   incentive:new FormControl(),
   email:new FormControl(),
   role:new FormControl(),
-  tc:new FormControl()
+  tc:new FormControl(),
+  staffId:new FormControl()
 });
 updateS(upds){
   this.staff = new Staff();
+
   this.staff.staffName = this.StaffName.value;
   this.staff.baseSalary = this.StaffBaseSalary.value;
   this.staff.incentive = this.StaffIncentive.value;

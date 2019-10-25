@@ -29,38 +29,39 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let staff of manystaff">
+                <tr *ngFor="let staff of stafflist">
                     <td>{{staff.staffId}}</td>
-                    <td>{{staff.staffName}}</td>
+                    <!-- <td>{{staff.staffName}}</td>
                     <td>{{staff.dateOfJoining}}</td>
                     <td>{{staff.baseSalary}}</td>
                     <td>{{staff.houseRateAllowance}}</td>
                     <td>{{staff.tuitionAssistance}}</td>
                     <td>{{staff.incentive}}</td>
                     <td>{{staff.email}}</td>
-                    <td>{{staff.role}}</td>
-                    <td>{{staff.tc.tcId}}</td>
+                    <td>{{staff.role}}</td> -->
+                    <!-- <td>{{staff.tc.tcId}}</td> -->
                     <td>
-                        <button (click)="deleteStaff(deleteStaff.staffId)" class='btn btn-primary'>
+                        <!-- <button (click)="deleteStaff(deleteStaff.staffId)" class='btn btn-primary'>
                             <i class="fa fa-futboll-0">DEL</i>
                         </button>
                         <button (click)="updateStaff(updateStaff.staffId)" class='btn btn-info' data-toggle="modal" data-target="#myModal">
                             UPD
-                        </button>
+                        </button> -->
                     </td>
                 </tr>
             </tbody><br>
         </table>
     </div>
+    
 </div>
 <div class="modal fade" id="#myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form [formGroup]="serviceupdateform" #upds (ngSubmit)="updateStaff(upds)">
+            <form [formGroup]="staffupdateform" #upds (ngSubmit)="updateStaff(upds)">
                 <div class="modal-header">
                     <h4 class="modal-title" style="text-align: center">Update Staff</h4>
                 </div>
-                <div class="modal-body" *ngFor="let staff of manystaff">
+                <div class="modal-body" *ngFor="let staff of stafflist">
                     <div [hidden]="isupdated">
                         <input type="hidden" class="form-control" formControlName="staffId" [(ngModel)]="staff.staffId">
                             <!-- staff.staffName -->
@@ -71,7 +72,7 @@
                             <!-- {{staff.baseSalary}} -->
                         <div class="form-group">
                             <label for="salary">Staff Salary</label>
-                            <input type="number" class="form-control" formControlName="staffSalary" [(ngModel)]="staff.staffSalary">
+                            <input type="number" class="form-control" formControlName="baseSalary" [(ngModel)]="staff.baseSalary">
                         </div>
                             <!-- {{staff.incentive}} -->
                         <div class="form-group">
@@ -94,7 +95,7 @@
                             <!-- <td>{{staff.tc.tcId}}</td> -->
                         <div class="form-group">
                             <label for="tc">Staff Email</label>
-                            <input type="number" class="form-control" formControlName="tc.tcId" [(ngModel)]="staff.tc.tcId">
+                            <input type="number" class="form-control" formControlName="tc" [(ngModel)]="staff.tc.tcId">
                         </div>
                     </div>
                     <div [hidden]="!isupdated">
