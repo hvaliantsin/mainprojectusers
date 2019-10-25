@@ -53,7 +53,7 @@ export class ListTransportcentreComponent implements OnInit {
         error =>console.log(error));
   }
 transportcentreupdateform=new FormGroup({
-  tcId: new FormControl(),
+  //tcId: new FormControl(),
   tcName: new FormControl(),
   tcAddress: new FormControl(),
   tcPhoneNumber: new FormControl(),
@@ -63,7 +63,7 @@ transportcentreupdateform=new FormGroup({
 });
 updateTc(updtc){
   this.transportcentre = new Transportcentre();
-  this.transportcentre.tcId = this.TransportcentreId.value;
+ // this.transportcentre.tcId = this.TransportcentreId.value;
   this.transportcentre.tcName = this.TransportcentreName.value;
   this.transportcentre.tcAddress = this.TransportcentreAddress.value;
   this.transportcentre.tcPhoneNumber = this.TransportcentrePhoneNumber.value;
@@ -77,9 +77,9 @@ updateTc(updtc){
     },
     error => console.log(error));
 }
-get TransportcentreId(){
-  return this.transportcentreupdateform.get('tcId');
-}
+// get TransportcentreId(){
+//   return this.transportcentreupdateform.get('tcId');
+// }
 get TransportcentreName(){
   return this.transportcentreupdateform.get('tcName');
 }
