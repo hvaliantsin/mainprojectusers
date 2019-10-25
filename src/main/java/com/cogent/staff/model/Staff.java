@@ -1,15 +1,10 @@
 package com.cogent.staff.model;
 
-import com.cogent.staff.model.Role;
 import com.cogent.transportcentre.model.TransportCentre;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.time.LocalDate;
-
 
 // add formula
 // add temporal
@@ -37,6 +32,7 @@ public class Staff {
     @Email
     @Column(name = "email")
     private String email;
+    @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private Role role;
     //@JsonBackReference

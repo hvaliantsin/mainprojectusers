@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StaffService } from '../staff.service';
 import { Staff } from '../staff';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Transportcentre } from '../transportcentre';
 
 @Component({
   selector: 'app-add-staff',
@@ -31,15 +32,17 @@ export class AddStaffComponent implements OnInit {
   saveStaff(saveStaff){
     this.staff = new Staff();
     this.staff.staffName = this.StaffName.value;
-
-
-
+    this.staff.baseSalary = this.StaffBaseSalary.value;
+    this.staff.email = this.StaffEmail.value;
+    this.staff.role = this.StaffRole.value;
+    this.staff.tc = new Transportcentre();
+    this.staff.tc.tcId = this.StaffTCID.value;
     this.submitted=true;
     this.save();
   }
   save(){
-    this.transportcentreservice.createTransportcentre(this.transportcentre).subscribe(data => console.log(data), error => console.error(error));
-    this.transportcentre = new Transportcentre();
+    this.staffservice.createStaff(this.staff).subscribe(data => console.log(data), error => console.error(error));
+    this.staff = new Staff();
   }
   get StaffName(){
     return this.staffsaveform.get('staffName');
@@ -50,8 +53,14 @@ export class AddStaffComponent implements OnInit {
   get StaffEmail(){
     return this.staffsaveform.get('email');
   }
-  addTransportcentreForm(){
+  get StaffRole(){
+    return this.staffsaveform.get('role');
+  }
+  get StaffTCID(){
+    return this.staffsaveform.get('tc');
+  }
+  addStaffForm(){
     this.submitted=false;
-    this.transportcentresaveform.reset();
+    this.staffsaveform.reset();
   }
 }

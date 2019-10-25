@@ -1,1 +1,95 @@
-<p>add-staff works!</p>
+<div class="row">
+        <div class="col-sm-4"> 
+        </div>
+        <div class="col-sm-4">
+            <div [hidden]="submitted" style="width: 400 px;">
+                <form [formGroup]="staffsaveform" 
+                #savestaff (ngSubmit)="saveStaff(saveStaff)">
+                    <h4 style="text-align: center;" > Create Staff</h4><br> 
+                    <!-- staffName -->
+                    <div class="form-group">
+                        <label for="name">
+                            Staff Name
+                        </label>
+                        <input type="text" class="form-control" formControlName="staffName" 
+                        data-toggle="tooltip" data-placement="right" title="Enter Staff Name">
+                        <div class="alert alert-danger" *ngIf="(StaffName.touched)
+                        &&(StaffName.invalid)" style="margin-top: 5px;">
+                            <span *ngIf="StaffName.errors.required">
+                                Staff Name is Required
+                            </span>
+                        </div>
+                    </div>
+                    <!-- baseSalary -->
+                    <div class="form-group">
+                            <label for="salary">
+                                Staff Salary
+                            </label>
+                            <input type="number" class="form-control" formControlName="baseSalary" 
+                            data-toggle="tooltip" data-placement="right" title="Enter Staff Base Salary">
+                            <div class="alert alert-danger" *ngIf="(StaffBaseSalary.touched)
+                            &&(StaffBaseSalary.invalid)" style="margin-top: 5px;">
+                                <span *ngIf="StaffBaseSalary.errors.required">
+                                    Staff Base Salary is Required
+                                </span>
+                            </div>
+                        </div>
+                    <!-- email -->
+                    <div class="form-group">
+                            <label for="email">
+                                Staff Email
+                            </label>
+                            <input type="email" class="form-control" formControlName="email" 
+                            data-toggle="tooltip" data-placement="right" title="Enter Staff Email Salary">
+                            <div class="alert alert-danger" *ngIf="(StaffEmail.touched)
+                            &&(StaffEmail.invalid)" style="margin-top: 5px;">
+                                <span *ngIf="StaffEmail.errors.required">
+                                    Staff Email is Required
+                                </span>
+                            </div>
+                        </div>
+                    <!-- role -->
+                    <div class="form-group">
+                            <label for="role">Staff Role</label>
+                            <select class="form-control" formControlName="role" 
+                            data-toggle="tooltip" data-placement="right" title="Select Staff Role">
+                                <option value="null">--Select Role--</option>
+                                <option value="MANAGER">Manager</option>
+                                <option value="DELIVERY_BOY">Delivery boy</option>
+                            </select>
+                    </div>
+                    <!-- tc -->
+                    <div class="form-group">
+                            <label for="tc">
+                                Staff Transport Centre Id
+                            </label>
+                            <input type="number" class="form-control" formControlName="tc" 
+                            data-toggle="tooltip" data-placement="right" title="Enter Staff Transport Centre">
+                            <div class="alert alert-danger" *ngIf="(StaffTCID.touched)
+                            &&(StaffTCID.invalid)" style="margin-top: 5px;">
+                                <span *ngIf="StaffTCID.errors.required">
+                                    Staff Transport Centre is Required
+                                </span>
+                            </div>
+                        </div>
+                    <button class="submit" class="btn btn-success">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div [hidden]="!submitted">
+                <h4>
+                    Staff Added!
+                </h4>
+                <button (click) = "addStaffForm()" class='btn btn-primary'>Add Staff</button>
+            </div>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
