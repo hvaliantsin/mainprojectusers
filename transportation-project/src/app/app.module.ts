@@ -13,6 +13,7 @@ import { ListTransportcentreComponent } from './list-transportcentre/list-transp
 import { AddStaffComponent } from './add-staff/add-staff.component';
 import { ListStaffComponent } from './list-staff/list-staff.component';
 import { AddClientComponent } from './add-client/add-client.component';
+import { ListClientComponent } from './list-client/list-client.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AddClientComponent } from './add-client/add-client.component';
     ListTransportcentreComponent,
     AddStaffComponent,
     ListStaffComponent,
-    AddClientComponent
+    AddClientComponent,
+    ListClientComponent
   ],
   imports: [
     BrowserModule,

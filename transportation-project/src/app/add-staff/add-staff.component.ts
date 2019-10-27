@@ -17,7 +17,6 @@ export class AddStaffComponent implements OnInit {
     this.submitted=false;
   }
   staffsaveform = new FormGroup({
-    staffId:new FormControl(),
     staffName:new FormControl(),
     //dateOfJoining:new FormControl(),
     baseSalary:new FormControl(),

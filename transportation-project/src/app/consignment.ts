@@ -1,3 +1,6 @@
+import { Transportcentre } from './transportcentre';
+import { Client } from './client';
+
 export class Consignment {
     consId:number;
     type:string;
@@ -6,4 +9,6 @@ export class Consignment {
     consDeliveryDate:string;      //////////
     consDeliveryAddress:string;
     consDeliveryAmount:number;
+    consDeliveryLoc:Transportcentre;
+    consClient:Client;
 }

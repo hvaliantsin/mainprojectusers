@@ -1,1 +1,85 @@
-<p>add-client works!</p>
+<div class="row">
+    <div class="col-sm-4"> 
+    </div>
+    <div class="col-sm-4">
+        <div [hidden]="submitted" style="width: 400 px;">
+            <form [formGroup]="clientsaveform" 
+            #savestaff (ngSubmit)="saveClient(saveClient)">
+                <h4 style="text-align: center;" > Create Client </h4><br> 
+                
+                <div class="form-group">
+                    <label for="name">
+                        Client Name
+                    </label>
+                    <input type="text" class="form-control" formControlName="clientName" 
+                    data-toggle="tooltip" data-placement="right" title="Enter Client Name">
+                    <div class="alert alert-danger" *ngIf="(ClientName.touched)
+                    &&(ClientName.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="ClientName.errors.required">
+                            Client Name is Required
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                        <label for="email">
+                            Client Email
+                        </label>
+                        <input type="email" class="form-control" formControlName="clientEmail" 
+                        data-toggle="tooltip" data-placement="right" title="Enter Client Email">
+                        <div class="alert alert-danger" *ngIf="(ClientEmail.touched)
+                        &&(ClientEmail.invalid)" style="margin-top: 5px;">
+                            <span *ngIf="ClientEmail.errors.required">
+                                Client Email is Required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">
+                            Client Phone Number
+                        </label>
+                        <input type="number" class="form-control" formControlName="clientPhoneNumber" 
+                        data-toggle="tooltip" data-placement="right" title="Enter Client Phone Number">
+                        <div class="alert alert-danger" *ngIf="(ClientPhoneNumber.touched)
+                        &&(ClientPhoneNumber.invalid)" style="margin-top: 5px;">
+                            <span *ngIf="ClientPhoneNumber.errors.required">
+                                Client Phone Number is Required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">
+                            Client Address
+                        </label>
+                        <input type="text" class="form-control" formControlName="clientAddress" 
+                        data-toggle="tooltip" data-placement="right" title="Enter Client Address">
+                        <div class="alert alert-danger" *ngIf="(ClientAddress.touched)
+                        &&(ClientAddress.invalid)" style="margin-top: 5px;">
+                            <span *ngIf="ClientAddress.errors.required">
+                                Client Address is Required
+                            </span>
+                        </div>
+                    </div>
+                    
+
+                <button class="submit" class="btn btn-success">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+</div>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="!submitted">
+            <h4>
+                Client Added!
+            </h4>
+            <button (click) = "addClientForm()" class='btn btn-primary'>Add Client</button>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>

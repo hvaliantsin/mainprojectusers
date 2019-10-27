@@ -6,6 +6,7 @@ import { AddTransportcentreComponent } from './add-transportcentre/add-transport
 import { ListTransportcentreComponent } from './list-transportcentre/list-transportcentre.component';
 import { AddStaffComponent } from './add-staff/add-staff.component';
 import { ListStaffComponent } from './list-staff/list-staff.component';
+import { AddClientComponent } from './add-client/add-client.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'add-transportcentre',component:AddTransportcentreComponent},
   {path:'list-transportcentre',component:ListTransportcentreComponent},
   {path:'add-staff',component:AddStaffComponent},
-  {path:'list-staff',component:ListStaffComponent}
+  {path:'list-staff',component:ListStaffComponent},
+  {path:'add-client',component:AddClientComponent}
 ];
 
 @NgModule({
