@@ -14,6 +14,10 @@ import { AddStaffComponent } from './add-staff/add-staff.component';
 import { ListStaffComponent } from './list-staff/list-staff.component';
 import { AddClientComponent } from './add-client/add-client.component';
 import { ListClientComponent } from './list-client/list-client.component';
+import { AdminComponent } from './reglog/admin/admin.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './reglog/login/login.component';
+import { RegisterComponent } from './reglog/register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { ListClientComponent } from './list-client/list-client.component';
     AddStaffComponent,
     ListStaffComponent,
     AddClientComponent,
-    ListClientComponent
+    ListClientComponent,
+    AdminComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
