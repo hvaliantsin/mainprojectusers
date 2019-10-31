@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestRestAPIs {
 	
-	@GetMapping("/api/test/user")
+	@GetMapping("/test/user")
 	@PreAuthorize("hasRole('USER')")
 	public String userAccess() {
 		return ">>> User Contents!";
 	}
 
-	@GetMapping("/api/test/tc")
+	@GetMapping("/test/tc")
 	@PreAuthorize("hasRole('TC')")
 	public String transportCentreAccess() {
 		return ">>> Transport Center Board";
 	}
 
-	@GetMapping("/api/test/client")
+	@GetMapping("/test/client")
 	@PreAuthorize("hasRole('CLIENT')")
 	public String clientAccess() {
 		return ">>> Clients content";
 	}
 
-	@GetMapping("/api/test/admin")
+	@GetMapping("/test/admin")
 	@PreAuthorize("hasRole('ADMIN')")
 	public String adminAccess() {
 		return ">>> Admin Contents";

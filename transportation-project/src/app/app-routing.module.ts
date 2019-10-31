@@ -7,6 +7,11 @@ import { ListTransportcentreComponent } from './list-transportcentre/list-transp
 import { AddStaffComponent } from './add-staff/add-staff.component';
 import { ListStaffComponent } from './list-staff/list-staff.component';
 import { AddClientComponent } from './add-client/add-client.component';
+import { HomeComponent } from './home/home.component';
+import { TcboardComponent } from './reglog/tcboard/tcboard.component';
+import { AdminComponent } from './reglog/admin/admin.component';
+import { LoginComponent } from './reglog/auth/login/login.component';
+import { RegisterComponent } from './reglog/auth/register/register.component';
 
 
 const routes: Routes = [
@@ -17,7 +22,13 @@ const routes: Routes = [
   {path:'list-transportcentre',component:ListTransportcentreComponent},
   {path:'add-staff',component:AddStaffComponent},
   {path:'list-staff',component:ListStaffComponent},
-  {path:'add-client',component:AddClientComponent}
+  {path:'add-client',component:AddClientComponent},
+  {path:'home',component:HomeComponent},
+  {path:'tcboard',component:TcboardComponent},
+  {path:'admin',component:AdminComponent},
+  {path:'auth/login',component:LoginComponent},
+  {path:'signup',component:RegisterComponent},
+  {path:'',redirectTo:'home',pathMatch:'full'}
 ];
 
 @NgModule({

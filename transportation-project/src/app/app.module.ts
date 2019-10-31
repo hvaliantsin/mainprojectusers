@@ -16,8 +16,12 @@ import { AddClientComponent } from './add-client/add-client.component';
 import { ListClientComponent } from './list-client/list-client.component';
 import { AdminComponent } from './reglog/admin/admin.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './reglog/login/login.component';
-import { RegisterComponent } from './reglog/register/register.component';
+import { LoginComponent } from './reglog/auth/login/login.component';
+import { RegisterComponent } from './reglog/auth/register/register.component';
+import { TcboardComponent } from './reglog/tcboard/tcboard.component';
+import { ClientboardComponent } from './reglog/clientboard/clientboard.component';
+import { EmployeeboardComponent } from './reglog/employeeboard/employeeboard.component';
+import { httpInterceptorProviders } from './reglog/auth/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,10 @@ import { RegisterComponent } from './reglog/register/register.component';
     AdminComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TcboardComponent,
+    ClientboardComponent,
+    EmployeeboardComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,7 @@ import { RegisterComponent } from './reglog/register/register.component';
     HttpClientModule,
     DataTablesModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
