@@ -1,6 +1,7 @@
 package com.cogent.client.model;
 
 
+import com.cogent.authentication.model.User;
 import com.cogent.consignment.model.Consignment;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -28,8 +29,21 @@ public class Client {
     @JsonIgnoreProperties(value = "consClient", allowSetters = true)
     @OneToMany(mappedBy = "consId", cascade = CascadeType.ALL)
     private Set<Consignment> consignments;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_client",
+            joinColumns = @JoinColumn(name = "client_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private User user;
 
     public Client() {
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Set<Consignment> getConsignments() {

@@ -20,9 +20,15 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @GetMapping("/{prdId}")
-    public ResponseEntity getClientById(@PathVariable("prdId") Long prdId){
+    @GetMapping("/{clId}")
+    public ResponseEntity getClientById(@PathVariable("clId") Long prdId){
         Client client = clientService.getClientById(prdId);
+        return new ResponseEntity<>(client, HttpStatus.OK);
+    }
+
+    @GetMapping("/email/{clEmail}")
+    public ResponseEntity getClientByEmail(@PathVariable("clId") String clId){
+        Client client = clientService.getClientByEmail(clId);
         return new ResponseEntity<>(client, HttpStatus.OK);
     }
 
@@ -40,7 +46,7 @@ public class ClientController {
 
         //add mail
         HttpHeaders header = new HttpHeaders();
-        header.setLocation(builder.path("/{prdId}").buildAndExpand(client.getClientId()).toUri());
+        header.setLocation(builder.path("/{clId}").buildAndExpand(client.getClientId()).toUri());
 
         return  new ResponseEntity<>(header, HttpStatus.CREATED);
     }

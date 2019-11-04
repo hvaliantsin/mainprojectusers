@@ -12,6 +12,7 @@ import { TcboardComponent } from './reglog/tcboard/tcboard.component';
 import { AdminComponent } from './reglog/admin/admin.component';
 import { LoginComponent } from './reglog/auth/login/login.component';
 import { RegisterComponent } from './reglog/auth/register/register.component';
+import { ClientAndAccountRegisterComponent } from './client-and-account-register/client-and-account-register.component';
 
 
 const routes: Routes = [
@@ -27,8 +28,9 @@ const routes: Routes = [
   {path:'tcboard',component:TcboardComponent},
   {path:'admin',component:AdminComponent},
   {path:'auth/login',component:LoginComponent},
-  {path:'signup',component:RegisterComponent},
-  {path:'',redirectTo:'home',pathMatch:'full'}
+  {path:'auth/signup',component:RegisterComponent},
+  {path:'',redirectTo:'home',pathMatch:'full'},
+  {path:'client-and-account-register',component:ClientAndAccountRegisterComponent}
 ];
 
 @NgModule({

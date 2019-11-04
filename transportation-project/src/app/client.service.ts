@@ -9,6 +9,9 @@ export class ClientService {
   private baseUrl = 'http://localhost:8080/client';
   constructor(private http:HttpClient) { }
 
+  getClientByEmail(email: string):Observable<any>{
+    return this.http.get(`${this.baseUrl}`+'/email/'+`${email}`)
+  }
   getClientList():Observable<any>{
     return this.http.get(`${this.baseUrl}`);
   }

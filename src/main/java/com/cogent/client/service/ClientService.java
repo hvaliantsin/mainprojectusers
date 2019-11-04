@@ -15,6 +15,11 @@ public class ClientService {
     @Autowired
     private ClientRepository clRepository;
 
+    public Client getClientByEmail(String clEmail){
+        Client client=clRepository.findByClientEmail(clEmail);
+        return client;
+    }
+
     public Client getClientById(Long clId){
         Client client=clRepository.findById(clId).get();
         return client;
