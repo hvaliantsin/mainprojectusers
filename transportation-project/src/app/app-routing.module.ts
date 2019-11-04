@@ -13,8 +13,11 @@ import { AdminComponent } from './reglog/admin/admin.component';
 import { LoginComponent } from './reglog/auth/login/login.component';
 import { RegisterComponent } from './reglog/auth/register/register.component';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { ClientAndAccountRegisterComponent } from './client-and-account-register/client-and-account-register.component';
 import { ClientboardComponent } from './reglog/clientboard/clientboard.component';
+=======
+>>>>>>> parent of 743b7746... register client
 =======
 >>>>>>> parent of 743b7746... register client
 

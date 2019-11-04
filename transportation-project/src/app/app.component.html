@@ -9,6 +9,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <li *ngIf="authority === 'user'" class="nav-item">
             <a class="nav-link" routerLink="user">User Board</a>
           </li>
@@ -43,6 +44,11 @@
               <a class="nav-link" routerLink="clientboard">Info</a>
             </div>
           </li>
+=======
+      <li *ngIf="!authority" class="nav-item">
+        <a class="nav-link" routerLink="auth/login">Login</a>
+      </li>
+>>>>>>> parent of 743b7746... register client
 =======
       <li *ngIf="!authority" class="nav-item">
         <a class="nav-link" routerLink="auth/login">Login</a>

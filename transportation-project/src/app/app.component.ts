@@ -25,9 +25,12 @@ export class AppComponent {
           this.authority = 'tc';
           return false;
 <<<<<<< HEAD
+<<<<<<< HEAD
         } else if (role === 'ROLE_EMPLOYEE') {
           this.authority = 'employee';
           return false;
+=======
+>>>>>>> parent of 743b7746... register client
 =======
 >>>>>>> parent of 743b7746... register client
         } else if (role === 'ROLE_CLIENT') {

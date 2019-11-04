@@ -10,6 +10,7 @@ export class ClientService {
   constructor(private http:HttpClient) { }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   
   getClientByUsername(username: string):Observable<any>{
     return this.http.get(`${this.baseUrl}`+'/username/'+`${username}`)
@@ -17,6 +18,8 @@ export class ClientService {
   getClientByEmail(email: string):Observable<any>{
     return this.http.get(`${this.baseUrl}`+'/email/'+`${email}`)
   }
+=======
+>>>>>>> parent of 743b7746... register client
 =======
 >>>>>>> parent of 743b7746... register client
   getClientList():Observable<any>{

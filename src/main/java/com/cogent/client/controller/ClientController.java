@@ -26,6 +26,7 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 <<<<<<< HEAD
+<<<<<<< HEAD
     @Autowired
     private UserRepository userRepository;
     @GetMapping("/{clId}")
@@ -35,10 +36,16 @@ public class ClientController {
     @GetMapping("/{prdId}")
     public ResponseEntity getClientById(@PathVariable("prdId") Long prdId){
 >>>>>>> parent of 743b7746... register client
+=======
+
+    @GetMapping("/{prdId}")
+    public ResponseEntity getClientById(@PathVariable("prdId") Long prdId){
+>>>>>>> parent of 743b7746... register client
         Client client = clientService.getClientById(prdId);
         return new ResponseEntity<>(client, HttpStatus.OK);
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     @GetMapping("/email/{clEmail}")
     public ResponseEntity getClientByEmail(@PathVariable("clEmail") String clEmail){
@@ -56,6 +63,8 @@ public class ClientController {
         return responseEntity;
     }
 
+=======
+>>>>>>> parent of 743b7746... register client
 =======
 >>>>>>> parent of 743b7746... register client
     @GetMapping
