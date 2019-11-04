@@ -9,6 +9,10 @@ export class ClientService {
   private baseUrl = 'http://localhost:8080/client';
   constructor(private http:HttpClient) { }
 
+  
+  getClientByUsername(username: string):Observable<any>{
+    return this.http.get(`${this.baseUrl}`+'/username/'+`${username}`)
+  }
   getClientByEmail(email: string):Observable<any>{
     return this.http.get(`${this.baseUrl}`+'/email/'+`${email}`)
   }
@@ -24,7 +28,10 @@ export class ClientService {
   updateClient(id: number, value: any): Observable<object>{
     return this.http.put(`${this.baseUrl}`+'/'+`${id}`, value)
   }
-  createClient(staff: object): Observable<object>{
-    return this.http.post(`${this.baseUrl}`+'/',staff);
+  createClient(client: object): Observable<object>{
+    return this.http.post(`${this.baseUrl}`+'/',client);
+  }
+  createClientUser(client: object, user: object): Observable<object>{
+    return this.http.post(`${this.baseUrl}`+'/',client,user);
   }
 }

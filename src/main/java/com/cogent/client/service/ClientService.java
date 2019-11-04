@@ -1,5 +1,7 @@
 package com.cogent.client.service;
 
+import com.cogent.authentication.model.User;
+import com.cogent.authentication.repository.UserRepository;
 import com.cogent.client.model.Client;
 import com.cogent.client.repository.ClientRepository;
 import com.cogent.transportcentre.model.TransportCentre;
@@ -15,8 +17,16 @@ public class ClientService {
     @Autowired
     private ClientRepository clRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     public Client getClientByEmail(String clEmail){
         Client client=clRepository.findByClientEmail(clEmail);
+        return client;
+    }
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public Client getClientByUsername(String clUsername){
+        Client client=clRepository.findByUser_Username(clUsername);
         return client;
     }
 
@@ -34,6 +44,12 @@ public class ClientService {
         Client list = clRepository.save(client);
         return list;
     }
+    public Client addClient(Client client, String username){
+        Client list = clRepository.save(client);
+        list.setUser(userRepository.findByUsername(username).get());
+        return list;
+    }
+
     public void updateClient(Client client){
         clRepository.save(client);
     }

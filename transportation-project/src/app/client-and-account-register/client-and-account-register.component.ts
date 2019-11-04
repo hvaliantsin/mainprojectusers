@@ -35,19 +35,18 @@ export class ClientAndAccountRegisterComponent implements OnInit {
 
   saveClient(saveClient){
     this.client = new Client();
-    this.signupInfo = new SignUpInfo(this.ClientName.value, this.ClientUsername.value, this.ClientEmail.value, this.ClientPassword.value,['client']);
     this.client.clientName = this.ClientName.value;
     this.client.clientEmail = this.ClientEmail.value;
     this.client.clientPhoneNumber = this.ClientPhoneNumber.value;
     this.client.clientAddress = this.ClientAddress.value;
+    this.signupInfo = new SignUpInfo(this.ClientName.value, this.ClientUsername.value, this.ClientEmail.value, this.ClientPassword.value,['client']);
     this.client.clientUser = this.signupInfo;
     this.submitted=true;
     this.save();
   }
   
   save(){
-    this.clientService.createClient(this.client).subscribe(data => console.log(data), error => console.error(error));
-    this.client = new Client();
+    
     this.authService.signUp(this.signupInfo).subscribe(
       data => {
         console.log(data);
@@ -60,6 +59,8 @@ export class ClientAndAccountRegisterComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     );
+    this.clientService.createClientUser(this.client,this.ClientUsername).subscribe(data => console.log(data), error => console.error(error));
+    this.client = new Client();
   }
 
   get ClientName(){

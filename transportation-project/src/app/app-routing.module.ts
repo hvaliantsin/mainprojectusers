@@ -13,6 +13,7 @@ import { AdminComponent } from './reglog/admin/admin.component';
 import { LoginComponent } from './reglog/auth/login/login.component';
 import { RegisterComponent } from './reglog/auth/register/register.component';
 import { ClientAndAccountRegisterComponent } from './client-and-account-register/client-and-account-register.component';
+import { ClientboardComponent } from './reglog/clientboard/clientboard.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'tcboard',component:TcboardComponent},
   {path:'admin',component:AdminComponent},
+  {path:'clientboard',component:ClientboardComponent},
   {path:'auth/login',component:LoginComponent},
   {path:'auth/signup',component:RegisterComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},

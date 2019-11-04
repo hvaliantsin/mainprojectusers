@@ -26,9 +26,11 @@ public class Client {
     private String clientPhoneNumber;
     @Column(name = "client_address")
     private String clientAddress;
+
     @JsonIgnoreProperties(value = "consClient", allowSetters = true)
     @OneToMany(mappedBy = "consId", cascade = CascadeType.ALL)
     private Set<Consignment> consignments;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "user_client",
             joinColumns = @JoinColumn(name = "client_id"),
@@ -36,6 +38,14 @@ public class Client {
     private User user;
 
     public Client() {
+    }
+
+    public Client(String clientName, @Email String clientEmail, String clientPhoneNumber, String clientAddress, User user) {
+        this.clientName = clientName;
+        this.clientEmail = clientEmail;
+        this.clientPhoneNumber = clientPhoneNumber;
+        this.clientAddress = clientAddress;
+        this.user = user;
     }
 
     public User getUser() {

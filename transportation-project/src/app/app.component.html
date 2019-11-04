@@ -9,7 +9,9 @@
         <li *ngIf="authority === 'user'" class="nav-item">
             <a class="nav-link" routerLink="user">User Board</a>
           </li>
-          
+          <li *ngIf="authority === 'client'" class="nav-item">
+            <a class="nav-link" routerLink="clientboard">Client Data</a>
+          </li>
           <li *ngIf="authority === 'admin'" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -27,6 +29,15 @@
             </a><!--dropdown menu todo-->
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="nav-link" routerLink="client-and-account-register">Add Client</a>
+            </div>
+          </li>
+          <li *ngIf="authority === 'client'" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" 
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Client Data
+            </a><!--dropdown menu todo-->
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="nav-link" routerLink="clientboard">Info</a>
             </div>
           </li>
     </ul>
