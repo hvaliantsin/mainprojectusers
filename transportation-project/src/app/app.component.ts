@@ -24,18 +24,11 @@ export class AppComponent {
         } else if (role === 'ROLE_TC') {
           this.authority = 'tc';
           return false;
-<<<<<<< HEAD
-<<<<<<< HEAD
-        } else if (role === 'ROLE_EMPLOYEE') {
-          this.authority = 'employee';
+        } else if (role === 'ROLE_TC') {
+          this.authority = 'tc';
           return false;
-=======
->>>>>>> parent of 743b7746... register client
-=======
->>>>>>> parent of 743b7746... register client
         } else if (role === 'ROLE_CLIENT') {
-          this.authority = 'client';
-          return false;
+          this.authority = 'client'
         }
         this.authority = 'user';
         return true;

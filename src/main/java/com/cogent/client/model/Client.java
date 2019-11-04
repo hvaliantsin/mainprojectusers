@@ -1,6 +1,7 @@
 package com.cogent.client.model;
 
 
+import com.cogent.authentication.model.User;
 import com.cogent.consignment.model.Consignment;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -25,34 +26,16 @@ public class Client {
     private String clientPhoneNumber;
     @Column(name = "client_address")
     private String clientAddress;
-
     @JsonIgnoreProperties(value = "consClient", allowSetters = true)
     @OneToMany(mappedBy = "consId", cascade = CascadeType.ALL)
     private Set<Consignment> consignments;
-<<<<<<< HEAD
-<<<<<<< HEAD
-
     @OneToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "user_client",
             joinColumns = @JoinColumn(name = "client_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private User user;
-=======
->>>>>>> parent of 743b7746... register client
-=======
->>>>>>> parent of 743b7746... register client
 
     public Client() {
-    }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public Client(String clientName, @Email String clientEmail, String clientPhoneNumber, String clientAddress, User user) {
-        this.clientName = clientName;
-        this.clientEmail = clientEmail;
-        this.clientPhoneNumber = clientPhoneNumber;
-        this.clientAddress = clientAddress;
-        this.user = user;
     }
 
     public User getUser() {
@@ -63,10 +46,6 @@ public class Client {
         this.user = user;
     }
 
-=======
->>>>>>> parent of 743b7746... register client
-=======
->>>>>>> parent of 743b7746... register client
     public Set<Consignment> getConsignments() {
         return consignments;
     }
