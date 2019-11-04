@@ -25,14 +25,21 @@ import org.apache.logging.log4j.LogManager;
 public class ClientController {
     @Autowired
     private ClientService clientService;
+<<<<<<< HEAD
     @Autowired
     private UserRepository userRepository;
     @GetMapping("/{clId}")
     public ResponseEntity getClientById(@PathVariable("clId") Long prdId){
+=======
+
+    @GetMapping("/{prdId}")
+    public ResponseEntity getClientById(@PathVariable("prdId") Long prdId){
+>>>>>>> parent of 743b7746... register client
         Client client = clientService.getClientById(prdId);
         return new ResponseEntity<>(client, HttpStatus.OK);
     }
 
+<<<<<<< HEAD
     @GetMapping("/email/{clEmail}")
     public ResponseEntity getClientByEmail(@PathVariable("clEmail") String clEmail){
         Client client = clientService.getClientByEmail(clEmail);
@@ -49,6 +56,8 @@ public class ClientController {
         return responseEntity;
     }
 
+=======
+>>>>>>> parent of 743b7746... register client
     @GetMapping
     public ResponseEntity<List<Client>> getAllTransportCentres(){
         List<Client> list=clientService.getAllClients();
@@ -66,7 +75,7 @@ public class ClientController {
 
         //add mail
         HttpHeaders header = new HttpHeaders();
-        header.setLocation(builder.path("/{clId}").buildAndExpand(client.getClientId()).toUri());
+        header.setLocation(builder.path("/{prdId}").buildAndExpand(client.getClientId()).toUri());
 
         return  new ResponseEntity<>(header, HttpStatus.CREATED);
     }

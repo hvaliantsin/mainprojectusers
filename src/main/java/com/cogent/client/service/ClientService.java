@@ -17,6 +17,7 @@ public class ClientService {
     @Autowired
     private ClientRepository clRepository;
 
+<<<<<<< HEAD
     @Autowired
     private UserRepository userRepository;
 
@@ -30,6 +31,8 @@ public class ClientService {
         return client;
     }
 
+=======
+>>>>>>> parent of 743b7746... register client
     public Client getClientById(Long clId){
         Client client=clRepository.findById(clId).get();
         return client;

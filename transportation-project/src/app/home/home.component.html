@@ -8,14 +8,6 @@
     <button class="btn btn-secondary" (click)="logout()">Logout</button>
   </div>
   
-  <ng-template #loggedOut  style=" text-align: center; width: 100%;" >
-    <div class="card"  style=" text-align: center; width: 100%;">
-      <div class="card-body">
-          Please login.<br>
-          <a *ngIf="!authority" routerLink="../auth/login" style=" text-align: center; width: 100%;">
-            <button class="btn btn-primary">Login</button>
-          </a> 
-      </div>
-    </div>
-    
+  <ng-template #loggedOut>
+    Please login.
   </ng-template>

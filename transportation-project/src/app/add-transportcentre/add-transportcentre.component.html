@@ -1,9 +1,11 @@
  
 
 <div class="row">
-
-    
-        <div [hidden]="submitted">
+    <div class="col-sm-4">
+       
+    </div>
+    <div class="col-sm-4">
+        <div [hidden]="submitted" style="width: 400 px;">
             <form [formGroup]="transportcentresaveform" #savetransportcenre (ngSubmit)="saveTransportcentre(saveTransportcentre)">
                 <h4 style="text-align: center;" > Create TC</h4><br> 
                 <div class="form-group">
@@ -60,7 +62,7 @@
                 </button>
             </form>
         </div>
-    
+    </div>
 </div>
 <div class="col-sm-4">
 </div>

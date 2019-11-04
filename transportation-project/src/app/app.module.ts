@@ -22,8 +22,6 @@ import { TcboardComponent } from './reglog/tcboard/tcboard.component';
 import { ClientboardComponent } from './reglog/clientboard/clientboard.component';
 import { EmployeeboardComponent } from './reglog/employeeboard/employeeboard.component';
 import { httpInterceptorProviders } from './reglog/auth/auth-interceptor';
-import { ClientAndAccountRegisterComponent } from './client-and-account-register/client-and-account-register.component';
-import { EmployeeAndAccountRegisterComponent } from './employee-and-account-register/employee-and-account-register.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +40,7 @@ import { EmployeeAndAccountRegisterComponent } from './employee-and-account-regi
     RegisterComponent,
     TcboardComponent,
     ClientboardComponent,
-    EmployeeboardComponent,
-    ClientAndAccountRegisterComponent,
-    EmployeeAndAccountRegisterComponent
+    EmployeeboardComponent
   ],
   imports: [
     BrowserModule,

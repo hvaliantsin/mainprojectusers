@@ -31,8 +31,6 @@ public class TransportCentre {
     @OneToMany(mappedBy = "consDeliveryLoc", cascade = CascadeType.ALL)
     private Set<Consignment> consignments;
 
-
-
     public TransportCentre() {
     }
 
