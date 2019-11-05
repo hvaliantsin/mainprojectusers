@@ -12,9 +12,10 @@ public class StaffService {
     @Autowired
     private StaffRepository sRepository;
 
-    public Staff getStaffById(Long sId){
-        Staff staff=sRepository.findById(sId).get();
-        return staff;
+    public List<Staff> getStaffById(Long sId){
+        List<Staff> list = new ArrayList<>();
+        list.add(sRepository.findById(sId).get());
+        return list;
     }
 
     public List<Staff> getAllStaff(){

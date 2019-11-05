@@ -4,6 +4,28 @@
     <div class="col-sm-4">
         <div [hidden]="submitted" style="width: 400 px;">
             <form [formGroup]="consignmentsaveform" #saveconsignment (ngSubmit)="saveConsignment(saveConsignment)">
+                    <div class="form-group">
+                            <label for="tc">
+                                Consignment TC
+                            </label>
+                            <input type="text" class="form-control" formControlName="consDeliveryLoc" data-toggle="tooltip" data-placement="right" title="Enter Consignment TC">
+                            <div class="alert alert-danger" *ngIf="(ConsignmentTCId.touched)&&(ConsignmentTCId.invalid)" style="margin-top: 5px;">
+                                <span *ngIf="ConsignmentTCId.errors.required">
+                                    Consignment Type is Required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="client">
+                                    Consignment Client
+                                </label>
+                                <input type="text" class="form-control" formControlName="consClient" data-toggle="tooltip" data-placement="right" title="Enter Consignment Client">
+                                <div class="alert alert-danger" *ngIf="(ConsignmentClientId.touched)&&(ConsignmentClientId.invalid)" style="margin-top: 5px;">
+                                    <span *ngIf="ConsignmentClientId.errors.required">
+                                        Consignment Client is Required
+                                    </span>
+                                </div>
+                            </div>
                 <div class="form-group">
                     <label for="type">
                         Consignment Type

@@ -24,7 +24,7 @@ public class Consignment {
     @JsonIgnoreProperties(value = "consignments", allowSetters = true)
     @ManyToOne
     @JoinColumn(name = "tc_id")
-    private TransportCentre consDeliveryLoc;
+    private TransportCentre tc;
     @Column(name = "cons_date")
     private LocalDate consDate;
     @Column(name = "cons_del_date")
@@ -34,11 +34,22 @@ public class Consignment {
     @JsonIgnoreProperties(value = "consignments", allowSetters = true)
     @ManyToOne
     @JoinColumn(name = "client_id")
-    private Client consClient;
+    private Client client;
     @Column(name = "cons_del_amount")
     private Float consDeliveryAmount;
 
     public Consignment() {
+    }
+
+    public Consignment(ConsignmentType type, Float consWeight, TransportCentre tc, LocalDate consDate, LocalDate consDeliveryDate, String consDeliveryAddress, Client client, Float consDeliveryAmount) {
+        this.type = type;
+        this.consWeight = consWeight;
+        this.tc = tc;
+        this.consDate = consDate;
+        this.consDeliveryDate = consDeliveryDate;
+        this.consDeliveryAddress = consDeliveryAddress;
+        this.client = client;
+        this.consDeliveryAmount = consDeliveryAmount;
     }
 
     public Long getConsId() {
@@ -65,12 +76,12 @@ public class Consignment {
         this.consWeight = consWeight;
     }
 
-    public TransportCentre getConsDeliveryLoc() {
-        return consDeliveryLoc;
+    public TransportCentre getTc() {
+        return tc;
     }
 
-    public void setConsDeliveryLoc(TransportCentre consDeliveryLoc) {
-        this.consDeliveryLoc = consDeliveryLoc;
+    public void setTc(TransportCentre tc) {
+        this.tc = tc;
     }
 
     public LocalDate getConsDate() {
@@ -97,19 +108,19 @@ public class Consignment {
         this.consDeliveryAddress = consDeliveryAddress;
     }
 
-    public Client getConsClient() {
-        return consClient;
+    public Client getClient() {
+        return client;
     }
 
-    public void setConsClient(Client consClient) {
-        this.consClient = consClient;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public Float getConsDeliveryAmount() {
         return consDeliveryAmount;
     }
 
-    public void setConsDeliveryAmount(Float consDeliveryAmmount) {
-        this.consDeliveryAmount = consDeliveryAmmount;
+    public void setConsDeliveryAmount(Float consDeliveryAmount) {
+        this.consDeliveryAmount = consDeliveryAmount;
     }
 }

@@ -5,10 +5,12 @@ export class Consignment {
     consId:number;
     type:string;
     consWeight:number;
+    consDeliveryLoc:Transportcentre;
     consDate:string;          //////////
     consDeliveryDate:string;      //////////
     consDeliveryAddress:string;
-    consDeliveryAmount:number;
-    consDeliveryLoc:Transportcentre;
     consClient:Client;
+    consDeliveryAmount:number;
+    //consDeliveryLoc:Transportcentre;
+   // consClient:Client;
 }

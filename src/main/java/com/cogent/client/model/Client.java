@@ -28,11 +28,20 @@ public class Client {
     private String clientPhoneNumber;
     @Column(name = "client_address")
     private String clientAddress;
-    @JsonIgnoreProperties(value = "consClient", allowSetters = true)
-    @OneToMany(mappedBy = "consId", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties(value = "client", allowSetters = true)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private Set<Consignment> consignments;
 
     public Client() {
+    }
+
+    public Client(String clientName, String clientUsername, @Email String clientEmail, String clientPhoneNumber, String clientAddress, Set<Consignment> consignments) {
+        this.clientName = clientName;
+        this.clientUsername = clientUsername;
+        this.clientEmail = clientEmail;
+        this.clientPhoneNumber = clientPhoneNumber;
+        this.clientAddress = clientAddress;
+        this.consignments = consignments;
     }
 
     public String getClientUsername() {
@@ -41,14 +50,6 @@ public class Client {
 
     public void setClientUsername(String clientUsername) {
         this.clientUsername = clientUsername;
-    }
-
-    public Set<Consignment> getConsignments() {
-        return consignments;
-    }
-
-    public void setConsignments(Set<Consignment> consignments) {
-        this.consignments = consignments;
     }
 
     public Long getClientId() {
@@ -89,5 +90,13 @@ public class Client {
 
     public void setClientAddress(String clientAddress) {
         this.clientAddress = clientAddress;
+    }
+
+    public Set<Consignment> getConsignments() {
+        return consignments;
+    }
+
+    public void setConsignments(Set<Consignment> consignments) {
+        this.consignments = consignments;
     }
 }

@@ -27,21 +27,20 @@ public class TransportCentre {
     @JsonIgnoreProperties(value = "tc", allowSetters = true)
     @OneToMany(mappedBy = "tc", cascade = CascadeType.ALL)
     private Set<Staff> staffSet;
-    @JsonIgnoreProperties(value = "consDeliveryLoc", allowSetters = true)
-    @OneToMany(mappedBy = "consDeliveryLoc", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties(value = "tc", allowSetters = true)
+    @OneToMany(mappedBy = "tc", cascade = CascadeType.ALL)
     private Set<Consignment> consignments;
-
-
 
     public TransportCentre() {
     }
 
-    public Set<Staff> getStaffSet() {
-        return staffSet;
-    }
-
-    public void setStaffSet(Set<Staff> staffSet) {
+    public TransportCentre(String tcName, String tcAddress, Long tcPhoneNumber, String tcEmail, Set<Staff> staffSet, Set<Consignment> consignments) {
+        this.tcName = tcName;
+        this.tcAddress = tcAddress;
+        this.tcPhoneNumber = tcPhoneNumber;
+        this.tcEmail = tcEmail;
         this.staffSet = staffSet;
+        this.consignments = consignments;
     }
 
     public Long getTcId() {
@@ -82,6 +81,14 @@ public class TransportCentre {
 
     public void setTcEmail(String tcEmail) {
         this.tcEmail = tcEmail;
+    }
+
+    public Set<Staff> getStaffSet() {
+        return staffSet;
+    }
+
+    public void setStaffSet(Set<Staff> staffSet) {
+        this.staffSet = staffSet;
     }
 
     public Set<Consignment> getConsignments() {

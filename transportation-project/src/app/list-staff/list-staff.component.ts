@@ -45,6 +45,7 @@ deleteStaff(id:number){
   error => console.log(error));
 }
 updateStaff(id: number){
+  console.log("updateStaff")
   this.staffservice.getStaff(id).subscribe(data =>{
     this.stafflist=data
   },
@@ -60,6 +61,7 @@ staffupdateform = new FormGroup({
   staffId:new FormControl()
 });
 updateS(upds){
+  console.log("updateS")
   this.staff = new Staff();
 
   this.staff.staffName = this.StaffName.value;

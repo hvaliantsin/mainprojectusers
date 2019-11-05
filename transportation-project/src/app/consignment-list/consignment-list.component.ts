@@ -33,6 +33,7 @@ export class ConsignmentListComponent implements OnInit {
     };
     this.consignmentservice.getConsignmentList().subscribe(data =>{
       this.consignments = data;
+      console.log(this.consignments);
       this.dtTrigger.next();
     })
   }
@@ -60,9 +61,11 @@ consignmentupdateform=new FormGroup({
     consId:new FormControl(),
     type: new FormControl(),
     consWeight:new FormControl(),
+    consDeliveryLoc: new FormControl(),
     consDate:new FormControl(),
     consDeliveryDate:new FormControl(),      //////////
     consDeliveryAddress:new FormControl(),
+    consClient: new FormControl(),
     consDeliveryAmount: new FormControl()
 });
 updateCons(updcons){

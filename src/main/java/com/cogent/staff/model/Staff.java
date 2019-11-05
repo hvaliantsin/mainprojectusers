@@ -43,13 +43,6 @@ public class Staff {
     @Column(name = "staff_username")
     private String staffUsername;
 
-    public String getStaffUsername() {
-        return staffUsername;
-    }
-
-    public void setStaffUsername(String staffUsername) {
-        this.staffUsername = staffUsername;
-    }
 
     public Staff() {
     }
@@ -64,22 +57,6 @@ public class Staff {
         this.dateOfJoining = LocalDate.now();
         this.houseRateAllowance=baseSalary*0.2f;
         this.tuitionAssistance=baseSalary*0.25f;
-    }
-
-    public Long getStaffId() {
-        return staffId;
-    }
-
-    public void setStaffId(Long staffId) {
-        this.staffId = staffId;
-    }
-
-    public String getStaffName() {
-        return staffName;
-    }
-
-    public void setStaffName(String staffName) {
-        this.staffName = staffName;
     }
 
     public LocalDate getDateOfJoining() {
@@ -100,11 +77,27 @@ public class Staff {
         setTuitionAssistance(baseSalary*0.25f);
     }
 
+    public Long getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(Long staffId) {
+        this.staffId = staffId;
+    }
+
+    public String getStaffName() {
+        return staffName;
+    }
+
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
+    }
+
     public Float getHouseRateAllowance() {
         return houseRateAllowance;
     }
 
-    private void setHouseRateAllowance(Float houseRateAllowance) {
+    public void setHouseRateAllowance(Float houseRateAllowance) {
         this.houseRateAllowance = houseRateAllowance;
     }
 
@@ -112,7 +105,7 @@ public class Staff {
         return tuitionAssistance;
     }
 
-    private void setTuitionAssistance(Float tuitionAssistance) {
+    public void setTuitionAssistance(Float tuitionAssistance) {
         this.tuitionAssistance = tuitionAssistance;
     }
 
@@ -146,5 +139,13 @@ public class Staff {
 
     public void setTc(TransportCentre tc) {
         this.tc = tc;
+    }
+
+    public String getStaffUsername() {
+        return staffUsername;
+    }
+
+    public void setStaffUsername(String staffUsername) {
+        this.staffUsername = staffUsername;
     }
 }

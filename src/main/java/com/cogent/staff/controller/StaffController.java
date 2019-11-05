@@ -22,9 +22,9 @@ public class StaffController {
     private JavaMailSender javaMailSender;
 
 
-    @GetMapping("/{prdId}")
+    @GetMapping("/{staffId}")
     public ResponseEntity getStaffById(@PathVariable("staffId") Long staffId){
-        Staff staff = staffService.getStaffById(staffId);
+        List<Staff> staff = staffService.getStaffById(staffId);
         return new ResponseEntity<>(staff, HttpStatus.OK);
     }
 

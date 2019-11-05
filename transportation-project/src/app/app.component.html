@@ -12,7 +12,16 @@
           <li *ngIf="authority === 'user'" class="nav-item">
               <a class="nav-link" routerLink="userboard">User Board</a>
             </li>
-          
+            <li *ngIf="authority === 'admin'" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Consignment
+                </a><!--dropdown menu todo-->
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="nav-link" routerLink="book-consignment">Add Consignment</a>
+                  <a class="nav-link" routerLink="view-consignment">View Consignments</a>
+                </div>
+              </li>
           <li *ngIf="authority === 'admin'" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,7 +60,7 @@
     </a>
   </ul> -->  
  </nav>
-<div class="card" style="align-items: center; max-width: 100%;">
+
   <router-outlet></router-outlet>
-</div>
+
  
