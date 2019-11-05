@@ -27,7 +27,15 @@ public class TransportCentreService {
         TransportCentre list = tcRepository.save(tc);
         return list;
     }
-    public void updateTransportCentre(TransportCentre tc){
+    public void updateTransportCentre(Long tcId, TransportCentre tc){
+        TransportCentre tc1 = tcRepository.findById(tcId).get();
+        tc.setTcId(tc1.getTcId());
+        //tc1.setConsignments(tc.getConsignments());
+        //tc1.setStaffSet(tc.getStaffSet());
+        //tc1.setTcAddress(tc.getTcAddress());
+        //tc1.setTcEmail(tc.getTcEmail());
+        //tc1.setTcName(tc.getTcName());
+        //tc1.setTcPhoneNumber(tc.getTcPhoneNumber());
         tcRepository.save(tc);
     }
     public void deleteTransportCentre(Long tcId){

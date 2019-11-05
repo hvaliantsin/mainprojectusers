@@ -16,6 +16,7 @@ import { ClientAndAccountRegisterComponent } from './client-and-account-register
 import { ClientboardComponent } from './reglog/clientboard/clientboard.component';
 import { EmployeeAndAccountRegisterComponent } from './employee-and-account-register/employee-and-account-register.component';
 import { ListClientComponent } from './list-client/list-client.component';
+import { PayrollAdminComponent } from './payroll-admin/payroll-admin.component';
 
 
 const routes: Routes = [
@@ -36,7 +37,8 @@ const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'client-and-account-register',component:ClientAndAccountRegisterComponent},
   {path:'employee-and-account-register',component:EmployeeAndAccountRegisterComponent},
-  {path:'clientboard', component:ClientboardComponent}
+  {path:'clientboard', component:ClientboardComponent},
+  {path:'payroll-admin', component:PayrollAdminComponent}
 
 ];
 

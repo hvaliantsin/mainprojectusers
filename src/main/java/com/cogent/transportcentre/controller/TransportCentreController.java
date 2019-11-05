@@ -42,14 +42,15 @@ public class TransportCentreController {
         return  new ResponseEntity<Void>(header, HttpStatus.CREATED);
     }
 
-    @PutMapping
-    public ResponseEntity<TransportCentre> updateTransportCentre(@RequestBody TransportCentre transportCentre){
-        tcService.updateTransportCentre(transportCentre);
+    @PutMapping("/{tsId}")
+    public ResponseEntity<TransportCentre> updateTransportCentre(@PathVariable("tsId") Long tsId, @RequestBody TransportCentre transportCentre){
+        tcService.updateTransportCentre(tsId, transportCentre);
         return  new ResponseEntity<TransportCentre>(transportCentre,HttpStatus.OK);
     }
 
     @DeleteMapping("/{tsId}")
     public ResponseEntity<Void> deleteTransportCentre(@PathVariable("tsId") Long tsId){
+
         tcService.deleteTransportCentre(tsId);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }

@@ -52,6 +52,9 @@
                 <a class="nav-link" routerLink="list-staff">List Employee</a>
               </div>
             </li>
+            <li *ngIf="authority === 'admin'" class="nav-item">
+                <a class="nav-link" routerLink="payroll-admin">Payroll</a>
+              </li>
     </ul>
   </div>
   <!-- <ul class="nav nav-pills">

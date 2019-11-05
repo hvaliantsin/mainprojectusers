@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+        <div class="panel-heading">
+            <h1 style="text-align: center">Staff Payroll</h1><br>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover table-sm" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Staff Id</th>
+                        <th>Staff Name</th>
+                        <th>Staff Salary</th>
+                        <th>Staff Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let staff of manystaff">
+                        <td>{{staff.staffId}}</td>
+                        <td>{{staff.staffName}}</td>
+                        <td>{{staff.baseSalary}}</td>
+                        <td>{{staff.baseSalary+staff.houseRateAllowance+staff.tuitionAssistance+staff.incentive}}</td>
+                    </tr>
+                </tbody><br>
+            </table>
+        </div>
+    </div>

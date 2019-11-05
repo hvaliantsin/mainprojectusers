@@ -3,6 +3,7 @@ import { TransportcentreService } from '../transportcentre.service';
 import { Subject, Observable } from 'rxjs';
 import { Transportcentre } from '../transportcentre';
 import { FormGroup, FormControl } from '@angular/forms';
+import { TokenStorageService } from '../reglog/auth/token-storage.service';
 
 @Component({
   selector: 'app-list-transportcentre',
@@ -10,8 +11,9 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./list-transportcentre.component.css']
 })
 export class ListTransportcentreComponent implements OnInit {
-
-  constructor(private transportcentreservice: TransportcentreService) { }
+  info: any;
+  
+  constructor(private transportcentreservice: TransportcentreService, private token: TokenStorageService) { }
   transportcentreArray: any[] = [];
   dtOptions: DataTables.Settings ={};
   dtTrigger: Subject<any> = new Subject();
@@ -20,7 +22,13 @@ export class ListTransportcentreComponent implements OnInit {
   deleteMessage=false;
   transportcentrelist:any;
   isupdated = false;
+  
   ngOnInit() {
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
     this.isupdated=false;
     this.dtOptions = {
       pageLength:6,
@@ -48,12 +56,12 @@ export class ListTransportcentreComponent implements OnInit {
     this.transportcentreservice.getTransportcentre(id)
       .subscribe(
         data => {
-          this.transportcentrelist=data
+          this.transportcentre=data;
         },
         error =>console.log(error));
   }
 transportcentreupdateform=new FormGroup({
-  //tcId: new FormControl(),
+  tcId: new FormControl(),
   tcName: new FormControl(),
   tcAddress: new FormControl(),
   tcPhoneNumber: new FormControl(),
@@ -63,7 +71,7 @@ transportcentreupdateform=new FormGroup({
 });
 updateTc(updtc){
   this.transportcentre = new Transportcentre();
- // this.transportcentre.tcId = this.TransportcentreId.value;
+  this.transportcentre.tcId = this.TransportcentreId.value;
   this.transportcentre.tcName = this.TransportcentreName.value;
   this.transportcentre.tcAddress = this.TransportcentreAddress.value;
   this.transportcentre.tcPhoneNumber = this.TransportcentrePhoneNumber.value;
@@ -91,6 +99,9 @@ get TransportcentrePhoneNumber(){
 }
 get TransportcentreEmail(){
   return this.transportcentreupdateform.get('tcEmail');
+}
+get TransportcentreId(){
+  return this.transportcentreupdateform.get('tcId');
 }
 changeisUpdate(){
   this.isupdated=false;

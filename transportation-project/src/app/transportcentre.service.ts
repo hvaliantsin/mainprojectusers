@@ -17,7 +17,7 @@ export class TransportcentreService {
     return this.http.delete(`${this.baseUrl}`+'/'+`${id}`,{responseType:'text'});
   }
 
-  getTransportcentre(id: number): Observable<object>{
+  getTransportcentre(id: number): Observable<any>{
     return this.http.get(`${this.baseUrl}`+'/'+`${id}`);
   }
 

@@ -39,7 +39,7 @@ export class BookConsignmentComponent implements OnInit {
     this.consignment.consDeliveryLoc = new Transportcentre();
     
     this.consignment.consDeliveryLoc.tcId = this.ConsignmentTCId.value;
-    this.consignment.consDeliveryAddress = this.ConsignmentAmount.value;
+    this.consignment.consDeliveryAddress = this.ConsignmentDeliveryAddress.value;
     this.consignment.consClient = new Client();
     this.consignment.consClient.clientId = this.ConsignmentClientId.value;
     this.consignment.consDeliveryAmount = this.ConsignmentAmount.value;

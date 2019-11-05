@@ -48,6 +48,39 @@
                         </span>
                     </div>
                 </div>
+                <div class="form-group">
+                        <label for="date">
+                            Consignment Date
+                        </label>
+                        <input type="date" class="form-control" formControlName="consDate" data-toggle="tooltip" data-placement="right" title="Enter Consignment Date">
+                        <div class="alert alert-danger" *ngIf="(ConsignmentDate.touched)&&(ConsignmentDate.invalid)" style="margin-top: 5px;">
+                            <span *ngIf="ConsignmentDate.errors.required">
+                                Consignment Date is Required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="date">
+                                Consignment Address
+                            </label>
+                            <input type="text" class="form-control" formControlName="consDeliveryAddress" data-toggle="tooltip" data-placement="right" title="Enter Consignment Delivery Address">
+                            <div class="alert alert-danger" *ngIf="(ConsignmentDeliveryAddress.touched)&&(ConsignmentDeliveryAddress.invalid)" style="margin-top: 5px;">
+                                <span *ngIf="ConsignmentDeliveryAddress.errors.required">
+                                    Consignment Delivery Address is Required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="date">
+                                    Consignment Amount
+                                </label>
+                                <input type="number" class="form-control" formControlName="consDeliveryAmount" data-toggle="tooltip" data-placement="right" title="Enter Consignment Amount">
+                                <div class="alert alert-danger" *ngIf="(ConsignmentAmount.touched)&&(ConsignmentAmount.invalid)" style="margin-top: 5px;">
+                                    <span *ngIf="ConsignmentAmount.errors.required">
+                                        Consignment Delivery Address is Required
+                                    </span>
+                                </div>
+                            </div>
                 <button class="submit" class="btn btn-success">
                     Submit
                 </button>

@@ -24,6 +24,7 @@ import { EmployeeboardComponent } from './reglog/employeeboard/employeeboard.com
 import { httpInterceptorProviders } from './reglog/auth/auth-interceptor';
 import { ClientAndAccountRegisterComponent } from './client-and-account-register/client-and-account-register.component';
 import { EmployeeAndAccountRegisterComponent } from './employee-and-account-register/employee-and-account-register.component';
+import { PayrollAdminComponent } from './payroll-admin/payroll-admin.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EmployeeAndAccountRegisterComponent } from './employee-and-account-regi
     ClientboardComponent,
     EmployeeboardComponent,
     ClientAndAccountRegisterComponent,
-    EmployeeAndAccountRegisterComponent
+    EmployeeAndAccountRegisterComponent,
+    PayrollAdminComponent
   ],
   imports: [
     BrowserModule,
