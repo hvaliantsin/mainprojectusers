@@ -29,6 +29,7 @@ export class AppComponent {
           return false;
         } else if (role === 'ROLE_CLIENT') {
           this.authority = 'client'
+          return false;
         }
         this.authority = 'user';
         return true;

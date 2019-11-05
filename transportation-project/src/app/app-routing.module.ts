@@ -13,6 +13,9 @@ import { AdminComponent } from './reglog/admin/admin.component';
 import { LoginComponent } from './reglog/auth/login/login.component';
 import { RegisterComponent } from './reglog/auth/register/register.component';
 import { ClientAndAccountRegisterComponent } from './client-and-account-register/client-and-account-register.component';
+import { ClientboardComponent } from './reglog/clientboard/clientboard.component';
+import { EmployeeAndAccountRegisterComponent } from './employee-and-account-register/employee-and-account-register.component';
+import { ListClientComponent } from './list-client/list-client.component';
 
 
 const routes: Routes = [
@@ -23,6 +26,7 @@ const routes: Routes = [
   {path:'list-transportcentre',component:ListTransportcentreComponent},
   {path:'add-staff',component:AddStaffComponent},
   {path:'list-staff',component:ListStaffComponent},
+  {path:'list-client',component:ListClientComponent},
   {path:'add-client',component:AddClientComponent},
   {path:'home',component:HomeComponent},
   {path:'tcboard',component:TcboardComponent},
@@ -30,7 +34,10 @@ const routes: Routes = [
   {path:'auth/login',component:LoginComponent},
   {path:'auth/signup',component:RegisterComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},
-  {path:'client-and-account-register',component:ClientAndAccountRegisterComponent}
+  {path:'client-and-account-register',component:ClientAndAccountRegisterComponent},
+  {path:'employee-and-account-register',component:EmployeeAndAccountRegisterComponent},
+  {path:'clientboard', component:ClientboardComponent}
+
 ];
 
 @NgModule({

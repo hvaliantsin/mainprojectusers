@@ -27,13 +27,20 @@ public class ClientController {
     }
 
     @GetMapping("/email/{clEmail}")
-    public ResponseEntity getClientByEmail(@PathVariable("clId") String clId){
+    public ResponseEntity getClientByEmail(@PathVariable("clEmail") String clId){
         Client client = clientService.getClientByEmail(clId);
         return new ResponseEntity<>(client, HttpStatus.OK);
     }
 
+    @GetMapping("/username/{clUsername}")
+    public ResponseEntity getClientByUsername(@PathVariable("clUsername") String clUsername){
+        Client client = clientService.getClientByUsername(clUsername);
+        return new ResponseEntity<>(client, HttpStatus.OK);
+    }
+
+
     @GetMapping
-    public ResponseEntity<List<Client>> getAllTransportCentres(){
+    public ResponseEntity<List<Client>> getAllClients(){
         List<Client> list=clientService.getAllClients();
         return new ResponseEntity<>(list,HttpStatus.OK);
     }

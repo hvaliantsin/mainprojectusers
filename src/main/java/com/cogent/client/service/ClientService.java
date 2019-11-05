@@ -20,6 +20,11 @@ public class ClientService {
         return client;
     }
 
+    public Client getClientByUsername(String clUsername){
+        Client client=clRepository.findByClientUsername(clUsername);
+        return client;
+    }
+
     public Client getClientById(Long clId){
         Client client=clRepository.findById(clId).get();
         return client;

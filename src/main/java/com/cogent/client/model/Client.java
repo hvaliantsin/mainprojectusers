@@ -19,6 +19,8 @@ public class Client {
     private Long clientId;
     @Column(name = "client_name")
     private String clientName;
+    @Column(name = "client_username")
+    private String clientUsername;
     @Email
     @Column(name = "client_email")
     private String clientEmail;
@@ -29,21 +31,16 @@ public class Client {
     @JsonIgnoreProperties(value = "consClient", allowSetters = true)
     @OneToMany(mappedBy = "consId", cascade = CascadeType.ALL)
     private Set<Consignment> consignments;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_client",
-            joinColumns = @JoinColumn(name = "client_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private User user;
 
     public Client() {
     }
 
-    public User getUser() {
-        return user;
+    public String getClientUsername() {
+        return clientUsername;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setClientUsername(String clientUsername) {
+        this.clientUsername = clientUsername;
     }
 
     public Set<Consignment> getConsignments() {

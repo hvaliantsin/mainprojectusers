@@ -35,12 +35,15 @@ export class ClientAndAccountRegisterComponent implements OnInit {
 
   saveClient(saveClient){
     this.client = new Client();
-    this.signupInfo = new SignUpInfo(this.ClientName.value, this.ClientUsername.value, this.ClientEmail.value, this.ClientPassword.value,['client']);
+    this.client.clientUsername = this.ClientUsername.value;
+    this.signupInfo = new SignUpInfo(this.ClientName.value, this.client.clientUsername, this.ClientEmail.value, this.ClientPassword.value,['client']);
     this.client.clientName = this.ClientName.value;
+    this.client.clientUsername = this.ClientUsername.value;
+    
     this.client.clientEmail = this.ClientEmail.value;
     this.client.clientPhoneNumber = this.ClientPhoneNumber.value;
     this.client.clientAddress = this.ClientAddress.value;
-    this.client.clientUser = this.signupInfo;
+    
     this.submitted=true;
     this.save();
   }

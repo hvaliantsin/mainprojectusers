@@ -12,6 +12,6 @@ export class Staff {
     email:string;
     role:Role;
     tc:Transportcentre;
-    
+    staffUsername:string;
     
 }

@@ -40,6 +40,16 @@ public class Staff {
     @ManyToOne
     @JoinColumn(name = "tc_id")
     private TransportCentre tc;
+    @Column(name = "staff_username")
+    private String staffUsername;
+
+    public String getStaffUsername() {
+        return staffUsername;
+    }
+
+    public void setStaffUsername(String staffUsername) {
+        this.staffUsername = staffUsername;
+    }
 
     public Staff() {
     }
