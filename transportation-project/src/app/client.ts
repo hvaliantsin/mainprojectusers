@@ -8,4 +8,5 @@ export class Client {
     clientEmail:string;
     clientPhoneNumber:string;
     clientAddress:string;
+    consignments:Consignment[];
 }

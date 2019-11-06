@@ -13,6 +13,10 @@ export class ConsignmentService {
     return this.http.get(`${this.baseUrl}`+'');
   }
 
+  getConsignmentListByClientId(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}`+'/clientid/'+`${id}`);
+  }
+
   deleteConsignment(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}`+'/'+`${id}`,{responseType:'text'});
   }

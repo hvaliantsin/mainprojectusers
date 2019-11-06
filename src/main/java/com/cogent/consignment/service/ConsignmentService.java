@@ -29,7 +29,14 @@ public class ConsignmentService {
         Consignment consignment1 = consRepository.save(consignment);
         return consignment1;
     }
-    public void updateConsignment(Consignment consignment){
+    public List<Consignment> getAllConsignmentByClientId(Long clientId){
+        List<Consignment> list = new ArrayList<>();
+        consRepository.findAllByClient_ClientId(clientId);
+        return list;
+    }
+    public void updateConsignment(Long consId, Consignment consignment){
+        Consignment consignment1 = consRepository.findById(consId).get();
+        consignment.setConsId(consignment1.getConsId());
         consRepository.save(consignment);
     }
     public void deleteConsignment(Long consId){

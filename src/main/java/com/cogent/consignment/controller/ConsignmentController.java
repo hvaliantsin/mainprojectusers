@@ -20,14 +20,19 @@ public class ConsignmentController {
     private ConsignmentService consignmentService;
 
     @GetMapping("/{consId}")
-    public ResponseEntity getClientById(@PathVariable("consId") Long consId){
+    public ResponseEntity getConsignmentById(@PathVariable("consId") Long consId){
         Consignment consignment = consignmentService.getConsignmentById(consId);
         return new ResponseEntity<>(consignment, HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<Consignment>> getAllTransportCentres(){
+    public ResponseEntity<List<Consignment>> getAllConsignments(){
         List<Consignment> list=consignmentService.getAllConsignment();
+        return new ResponseEntity<>(list,HttpStatus.OK);
+    }
+    @GetMapping("clientid/{clientId}")
+    public ResponseEntity<List<Consignment>> getAllConsignmentsByClientId(@PathVariable("clientId") Long clientId){
+        List<Consignment> list=consignmentService.getAllConsignmentByClientId(clientId);
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
 
@@ -44,9 +49,9 @@ public class ConsignmentController {
         return  new ResponseEntity<>(header, HttpStatus.CREATED);
     }
 
-    @PutMapping
-    public ResponseEntity<Consignment> updateConsignment(@RequestBody Consignment consignment){
-        consignmentService.updateConsignment(consignment);
+    @PutMapping("/{consId}")
+    public ResponseEntity<Consignment> updateConsignment(@PathVariable("consId") Long consId, @RequestBody Consignment consignment){
+        consignmentService.updateConsignment(consId, consignment);
         return  new ResponseEntity<>(consignment,HttpStatus.OK);
     }
 

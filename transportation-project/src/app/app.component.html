@@ -9,6 +9,9 @@
         <li *ngIf="authority === 'client'" class="nav-item">
             <a class="nav-link" routerLink="clientboard">User Board</a>
           </li>
+          <li *ngIf="authority === 'admin'" class="nav-item">
+              <a class="nav-link" routerLink="clientboard">User Board</a>
+            </li>
           <li *ngIf="authority === 'user'" class="nav-item">
               <a class="nav-link" routerLink="userboard">User Board</a>
             </li>

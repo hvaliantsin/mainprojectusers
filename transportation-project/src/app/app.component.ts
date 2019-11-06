@@ -24,8 +24,8 @@ export class AppComponent {
         } else if (role === 'ROLE_TC') {
           this.authority = 'tc';
           return false;
-        } else if (role === 'ROLE_TC') {
-          this.authority = 'tc';
+        } else if (role === 'ROLE_USER') {
+          this.authority = 'user';
           return false;
         } else if (role === 'ROLE_CLIENT') {
           this.authority = 'client'

@@ -37,7 +37,8 @@ public class Consignment {
     private Client client;
     @Column(name = "cons_del_amount")
     private Float consDeliveryAmount;
-
+    @Column(name = "status")
+    private String status;
     public Consignment() {
     }
 
