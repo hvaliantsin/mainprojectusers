@@ -69,7 +69,7 @@ consignmentupdateform=new FormGroup({
     consDeliveryAmount: new FormControl()
 });
 updateCons(updcons){
-  this.consignment = new Consignment();
+  //this.consignment = new Consignment();
   this.consignment.consId = this.ConsignmentId.value;
   this.consignment.type = this.ConsignmentType.value;
   this.consignment.consWeight = this.ConsignmentWeight.value;

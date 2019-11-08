@@ -7,14 +7,23 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
         <li *ngIf="authority === 'client'" class="nav-item">
-            <a class="nav-link" routerLink="clientboard">User Board</a>
+            <a class="nav-link" routerLink="clientboard">Client Board</a>
           </li>
           <li *ngIf="authority === 'admin'" class="nav-item">
-              <a class="nav-link" routerLink="clientboard">User Board</a>
+              <a class="nav-link" routerLink="clientboard">Admin Board</a>
             </li>
           <li *ngIf="authority === 'user'" class="nav-item">
               <a class="nav-link" routerLink="userboard">User Board</a>
             </li>
+            <li *ngIf="authority === 'tc'" class="nav-item">
+                <a class="nav-link" routerLink="tcboard">Tc Board</a>
+              </li>
+              <li *ngIf="authority === 'tc'" class="nav-item">
+                  <a class="nav-link" routerLink="book-consignment-from-tc">Consignment Booking</a>
+                </li>
+            <li *ngIf="authority === 'tc'" class="nav-item">
+                <a class="nav-link" routerLink="list-transportcentre">View Transport Centres</a>
+              </li>
             <li *ngIf="authority === 'admin'" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

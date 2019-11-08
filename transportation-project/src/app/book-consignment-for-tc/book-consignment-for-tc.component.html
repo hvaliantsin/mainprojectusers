@@ -1,0 +1,106 @@
+<h2>Book Consignment</h2>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="submitted" style="width: 400 px;">
+            <form [formGroup]="consignmentsaveform" #saveconsignment (ngSubmit)="saveConsignment(saveConsignment)">
+                    
+                        <div class="form-group">
+                                <label for="client">
+                                    Consignment Client
+                                </label>
+                                <input type="text" class="form-control" formControlName="consClient" 
+                                data-toggle="tooltip" data-placement="right" title="Enter Consignment Client">
+                                <div class="alert alert-danger" *ngIf="(ConsignmentClientId.touched)&&(ConsignmentClientId.invalid)" 
+                                style="margin-top: 5px;">
+                                    <span *ngIf="ConsignmentClientId.errors.required">
+                                        Consignment Client is Required
+                                    </span>
+                                </div>
+                            </div>
+                <div class="form-group">
+                    <label for="type">
+                        Consignment Type
+                    </label>
+                    <input type="text" class="form-control" formControlName="type" data-toggle="tooltip" 
+                    data-placement="right" title="Enter Consignment Type">
+                    <div class="alert alert-danger" *ngIf="(ConsignmentType.touched)&&(ConsignmentType.invalid)" 
+                    style="margin-top: 5px;">
+                        <span *ngIf="ConsignmentType.errors.required">
+                            Consignment Type is Required
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="type">
+                        Consignment Weight
+                    </label>
+                    <input type="text" class="form-control" formControlName="consWeight" data-toggle="tooltip" 
+                    data-placement="right" title="Enter Consignment Weight">
+                    <div class="alert alert-danger" *ngIf="(ConsignmentWeight.touched)&&(ConsignmentWeight.invalid)" 
+                    style="margin-top: 5px;">
+                        <span *ngIf="ConsignmentWeight.errors.required">
+                            Consignment Type is Required
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label for="date">
+                            Consignment Date
+                        </label>
+                        <input type="date" class="form-control" formControlName="consDate" data-toggle="tooltip" 
+                        data-placement="right" title="Enter Consignment Date">
+                        <div class="alert alert-danger" *ngIf="(ConsignmentDate.touched)&&(ConsignmentDate.invalid)" 
+                        style="margin-top: 5px;">
+                            <span *ngIf="ConsignmentDate.errors.required">
+                                Consignment Date is Required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="date">
+                                Consignment Address
+                            </label>
+                            <input type="text" class="form-control" formControlName="consDeliveryAddress" 
+                            data-toggle="tooltip" data-placement="right" title="Enter Consignment Delivery Address">
+                            <div class="alert alert-danger" *ngIf="(ConsignmentDeliveryAddress.touched)&&(ConsignmentDeliveryAddress.invalid)" 
+                            style="margin-top: 5px;">
+                                <span *ngIf="ConsignmentDeliveryAddress.errors.required">
+                                    Consignment Delivery Address is Required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="date">
+                                    Consignment Amount
+                                </label>
+                                <input type="number" class="form-control" formControlName="consDeliveryAmount" 
+                                data-toggle="tooltip" data-placement="right" title="Enter Consignment Amount">
+                                <div class="alert alert-danger" *ngIf="(ConsignmentAmount.touched)&&(ConsignmentAmount.invalid)" 
+                                style="margin-top: 5px;">
+                                    <span *ngIf="ConsignmentAmount.errors.required">
+                                        Consignment Delivery Address is Required
+                                    </span>
+                                </div>
+                            </div>
+                <button class="submit" class="btn btn-success">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+</div>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="!submitted">
+            <h4>
+                Consignment Added!
+            </h4>
+            <button (click) = "addConsignmentForm()" class='btn btn-primary'>Add Consignment</button>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>

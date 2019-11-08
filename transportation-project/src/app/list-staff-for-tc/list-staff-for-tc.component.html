@@ -1,0 +1,95 @@
+<div class="panel panel-default">
+        <div class="panel-heading">
+            <h1 style="text-align: center">Staff</h1><br>
+            <div class="row" [hidden]="!deleteMessage">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div class="alert alert-info alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>Staff Deleted</strong>
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover table-sm" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                <thead class="thead-light">
+                        <tr>
+                                <th>Staff Id</th>
+                                <th>Staff Name</th>
+                                <th>Staff Salary</th>
+                                <th>Staff Incentive</th>
+                                <th>Staff Role</th>
+                                <th>Staff TC</th>
+                                <th>Action</th>
+                            </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let staff of manystaff">
+                                <td>{{staff.staffId}}</td>
+                                <td>{{staff.staffName}}</td>
+                                <td>{{staff.baseSalary}}</td>
+                                <td>{{staff.incentive}}</td>
+                                <td>{{staff.role}}</td>
+                                <td>{{staff.tc.tcId}}</td>
+                                <td>
+                                    <button (click)="deleteStaff(staff.staffId)" class='btn btn-primary'>
+                                        <i class="fa fa-futboll-0">Delete</i></button>
+                                    <button (click)="updateStaff(staff.staffId)" class='btn btn-info' 
+                                    data-toggle="modal" data-target="#myModal">Update</button>
+                                </td>
+                            </tr>
+                </tbody><br>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form [formGroup]="staffupdateform" #upds (ngSubmit)="updateStaff(upds)">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="text-align: center">Update Transport Centre</h4>
+                    </div>
+                    <div class="modal-body" >
+                            <div [hidden]="isupdated">
+                       
+                                    <input type="hidden" class="form-control" formControlName="staffId" 
+                                    [(ngModel)]="staff.staffId">
+                                     <!-- Name -->
+                                    <div class="form-group">
+                                        <label for="name">Staff Name</label>
+                                        <input type="text" class="form-control" formControlName="staffName" 
+                                        [(ngModel)]="staff.staffName">
+                                    </div>
+                                    <!-- Address -->
+                                    <div class="form-group">
+                                            <label for="salary">Staff Base Salary</label>
+                                            <input type="number" class="form-control" formControlName="baseSalary" 
+                                            [(ngModel)]="staff.baseSalary">
+                                    </div>
+                                    <!-- Phone Number -->
+                                    <div class="form-group">
+                                            <label for="incentive">Staff Incentive</label>
+                                            <input type="number" class="form-control" formControlName="incentive" 
+                                            [(ngModel)]="staff.incentive">
+                                    </div>
+                                    <!-- Email -->
+                                    <div class="form-group">
+                                            <label for="email">Staff Email</label>
+                                            <input type="email" class="form-control" formControlName="email" 
+                                            [(ngModel)]="staff.email">
+                                    </div>
+                                </div>
+                        <div [hidden]="!isupdated">
+                            <h4>Transport Centre Updated!</h4>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

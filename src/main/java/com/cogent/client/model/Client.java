@@ -32,6 +32,7 @@ public class Client {
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private Set<Consignment> consignments;
 
+
     public Client() {
     }
 

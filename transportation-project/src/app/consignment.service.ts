@@ -21,7 +21,7 @@ export class ConsignmentService {
     return this.http.delete(`${this.baseUrl}`+'/'+`${id}`,{responseType:'text'});
   }
 
-  getConsignment(id: number): Observable<object>{
+  getConsignment(id: number): Observable<any>{
     return this.http.get(`${this.baseUrl}`+'/'+`${id}`);
   }
 

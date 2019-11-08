@@ -61,6 +61,7 @@ updateC(updc){
   this.client.clientEmail = this.ClientEmail.value;
   this.client.clientPhoneNumber = this.ClientPhoneNumber.value;
   this.client.clientAddress = this.ClientAddress.value;
+  console.log(this.client);
   this.clientservice.updateClient(this.client.clientId,this.client).subscribe(
     data => {
       this.isupdated=true;

@@ -4,6 +4,7 @@ import com.cogent.client.model.Client;
 import com.cogent.client.service.ClientService;
 import com.cogent.consignment.model.Consignment;
 import com.cogent.consignment.service.ConsignmentService;
+import com.cogent.transportcentre.model.TransportCentre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -35,7 +36,16 @@ public class ConsignmentController {
         List<Consignment> list=consignmentService.getAllConsignmentByClientId(clientId);
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
-
+    @GetMapping("staff/{staffId}")
+    public ResponseEntity<List<Consignment>> getAllConsignmentsByStaff(@PathVariable("staffId") Long staffId){
+        List<Consignment> list=consignmentService.getAllConsignmentByStaffId(staffId);
+        return new ResponseEntity<>(list,HttpStatus.OK);
+    }
+    @GetMapping("tc")
+    public ResponseEntity<List<Consignment>> getAllConsignmentsByTc(@RequestBody TransportCentre transportCentre){
+        List<Consignment> list=consignmentService.getAllConsignmentByTc(transportCentre);
+        return new ResponseEntity<>(list,HttpStatus.OK);
+    }
     @PostMapping
     public ResponseEntity<Void> addConsignment(@RequestBody Consignment consignment, UriComponentsBuilder builder){
         Consignment flag=consignmentService.addConsignment(consignment);

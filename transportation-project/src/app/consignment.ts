@@ -1,5 +1,6 @@
 import { Transportcentre } from './transportcentre';
 import { Client } from './client';
+import { Staff } from './staff';
 
 export class Consignment {
     consId:number;
@@ -12,6 +13,7 @@ export class Consignment {
     client:Client;
     consDeliveryAmount:number;
     status:string;
+    staff:Staff;
     //consDeliveryLoc:Transportcentre;
    // consClient:Client;
 }

@@ -4,6 +4,7 @@ import com.cogent.client.model.Client;
 import com.cogent.client.repository.ClientRepository;
 import com.cogent.consignment.model.Consignment;
 import com.cogent.consignment.repository.ConsignmentRepository;
+import com.cogent.transportcentre.model.TransportCentre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,25 +21,41 @@ public class ConsignmentService {
         return consignment;
     }
 
+    public List<Consignment> getAllConsignmentByTc(TransportCentre transportCentre){
+        List<Consignment> list = new ArrayList<>();
+        consRepository.findAllByTc(transportCentre).forEach(e->list.add(e));
+        return list;
+    }
+
     public List<Consignment> getAllConsignment(){
         List<Consignment> list = new ArrayList<>();
         consRepository.findAll().forEach(e->list.add(e));
         return list;
     }
+
     public Consignment addConsignment(Consignment consignment){
         Consignment consignment1 = consRepository.save(consignment);
         return consignment1;
     }
+
     public List<Consignment> getAllConsignmentByClientId(Long clientId){
         List<Consignment> list = new ArrayList<>();
-        consRepository.findAllByClient_ClientId(clientId);
+        list = consRepository.findAllByClient_ClientId(clientId);
         return list;
     }
+
+    public List<Consignment> getAllConsignmentByStaffId(Long staffId){
+        List<Consignment> list = new ArrayList<>();
+        list = consRepository.findAllByStaff(staffId);
+        return list;
+    }
+
     public void updateConsignment(Long consId, Consignment consignment){
         Consignment consignment1 = consRepository.findById(consId).get();
         consignment.setConsId(consignment1.getConsId());
         consRepository.save(consignment);
     }
+
     public void deleteConsignment(Long consId){
         consRepository.deleteById(consId);
     }

@@ -46,11 +46,16 @@ export class EmployeeAndAccountRegisterComponent implements OnInit {
     this.staff = new Staff();
     this.staff.staffUsername = this.StaffUsername.value;
     this.staff.role = this.StaffRole.value;
-    if(this.staff.role == Role.MANAGER)
+    if(this.StaffRole.value == "MANAGER"){
       this.temprole = ['tc'];
+    }
       else
-      this.temprole = ['user'];
+      {
+        this.temprole = ['user'];
+    }
+      //this.temprole = ['user'];
     this.signupInfo = new SignUpInfo(this.StaffName.value, this.staff.staffUsername, this.StaffEmail.value, this.StaffPassword.value,this.temprole);
+    console.log(this.temprole);
     this.staff.staffName = this.StaffName.value;
     this.staff.baseSalary = this.StaffBaseSalary.value;
     this.staff.email = this.StaffEmail.value;

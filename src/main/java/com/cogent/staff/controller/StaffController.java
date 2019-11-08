@@ -1,8 +1,10 @@
 package com.cogent.staff.controller;
 
+import com.cogent.client.model.Client;
 import com.cogent.mailsender.MailSender;
 import com.cogent.staff.model.Staff;
 import com.cogent.staff.service.StaffService;
+import com.cogent.transportcentre.model.TransportCentre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -27,13 +29,21 @@ public class StaffController {
         List<Staff> staff = staffService.getStaffById(staffId);
         return new ResponseEntity<>(staff, HttpStatus.OK);
     }
-
+    @GetMapping("/username/{sUsername}")
+    public ResponseEntity getClientByUsername(@PathVariable("sUsername") String sUsername){
+        Staff staff = staffService.getStaffByUsername(sUsername);
+        return new ResponseEntity<>(staff, HttpStatus.OK);
+    }
     @GetMapping
     public ResponseEntity<List<Staff>> getAllStaff() {
         List<Staff> list = staffService.getAllStaff();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
-
+    @GetMapping("/tc")
+    public ResponseEntity<List<Staff>> getAllStaffByTC(@RequestBody TransportCentre transportCentre) {
+        List<Staff> list = staffService.getAllStaffByTC(transportCentre);
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
     @PostMapping
     public ResponseEntity<Void> addStaff(@RequestBody Staff staff, UriComponentsBuilder builder){
         Staff flag=staffService.addStaff(staff);
