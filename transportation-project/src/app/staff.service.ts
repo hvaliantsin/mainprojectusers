@@ -19,8 +19,8 @@ export class StaffService {
   deleteStaff(id: number): Observable<any>{
     return this.http.delete(`${this.baseUrl}`+'/'+`${id}`,{responseType:'text'});
   }
-  getStaffListByTC(tc: object): Observable<any>{
-    return this.http.get(`${this.baseUrl}`+'/tc',tc);
+  getStaffListByTcId(id: number): Observable<any>{
+    return this.http.get(`${this.baseUrl}`+'/tc/'+`${id}`);
   }
   getStaff(id: number): Observable<any>{
     return this.http.get(`${this.baseUrl}`+'/'+`${id}`);

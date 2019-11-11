@@ -11,4 +11,5 @@ import java.util.List;
 public interface StaffRepository extends JpaRepository<Staff,Long> {
     public Staff findByStaffUsername(String username);
     public List<Staff> findAllByTc(TransportCentre transportCentre);
+    public List<Staff> findAllByTc_TcId(Long tcId);
 }

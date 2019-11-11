@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ConsignmentRepository extends JpaRepository<Consignment,Long> {
     public List<Consignment> findAllByClient_ClientId(Long clientId);
-    public List<Consignment> findAllByStaff(Long staffId);
+    public List<Consignment> findAllByStaffId(Long staffId);
     public List<Consignment> findAllByTc(TransportCentre transportCentre);
 }

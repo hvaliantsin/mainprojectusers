@@ -46,7 +46,7 @@ public class ConsignmentService {
 
     public List<Consignment> getAllConsignmentByStaffId(Long staffId){
         List<Consignment> list = new ArrayList<>();
-        list = consRepository.findAllByStaff(staffId);
+        list = consRepository.findAllByStaffId(staffId);
         return list;
     }
 

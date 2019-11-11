@@ -1,6 +1,6 @@
  
 
-<div class="row">
+<div class="row" style="margin-left: 200px;">
 
     
         <div [hidden]="submitted">
@@ -10,7 +10,7 @@
                     <label for="name">
                         Transport Centre Name
                     </label>
-                    <input type="text" class="form-control" formControlName="tcName" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Name">
+                    <input type="text" class="form-control" formControlName="tcName" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Name" required>
                     <div class="alert alert-danger" *ngIf="(TransportcentreName.touched)&&(TransportcentreName.invalid)" style="margin-top: 5px;">
                         <span *ngIf="TransportcentreName.errors.required">
                             Transport Centre Name is Required
@@ -22,7 +22,7 @@
                     <label for="address">
                         Transport Centre Address
                     </label>
-                    <input type="text" class="form-control" formControlName="tcAddress" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Address">
+                    <input type="text" class="form-control" formControlName="tcAddress" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Address" required>
                     <div class="alert alert-danger" *ngIf="(TransportcentreAddress.touched)&&(TransportcentreAddress.invalid)" style="margin-top: 5px;">
                         <span *ngIf="TransportcentreAddress.errors.required">
                             Transport Centre Address is Required
@@ -35,7 +35,7 @@
                         Transport Centre Phone Number
                     </label>
                     <input type="tel"
-                    required class="form-control" formControlName="tcPhoneNumber" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Phone Number">
+                    required class="form-control" formControlName="tcPhoneNumber" data-toggle="tooltip" data-placement="right" title="Enter Transport Centre Phone Number" required>
                     <div class="alert alert-danger" *ngIf="(TransportcentrePhoneNumber.touched)&&(TransportcentrePhoneNumber.invalid)" style="margin-top: 5px;">
                         <span *ngIf="TransportcentrePhoneNumber.errors.required">
                             Transport Centre Phone Number is Required

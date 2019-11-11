@@ -42,14 +42,14 @@
         </table>
     </div>
 </div>
-<div class="modal fade" id="#myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form [formGroup]="clientupdateform" #updc (ngSubmit)="updateC(updc)">
                 <div class="modal-header">
                     <h4 class="modal-title" style="text-align: center">Update Client</h4>
                 </div>
-                <div class="modal-body" *ngFor="let client of clientlist">
+                <div class="modal-body">
                     <div [hidden]="isupdated">
                        
                         <input type="hidden" class="form-control" formControlName="clientId" 
@@ -75,7 +75,7 @@
                         <!-- Email -->
                         <div class="form-group">
                                 <label for="email">Client Email</label>
-                                <input type="email" class="form-control" formControlName="email" 
+                                <input type="email" class="form-control" formControlName="clientEmail" 
                                 [(ngModel)]="client.clientEmail">
                         </div>
                     </div>

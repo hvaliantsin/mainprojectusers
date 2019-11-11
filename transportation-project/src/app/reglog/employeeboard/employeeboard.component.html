@@ -1,1 +1,141 @@
-<p>employeeboard works!</p>
+
+<table class="table" style="width: 400px;">
+  <thead></thead>
+  <tbody>
+    <tr>
+      <td>Your Profile</td>
+      <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"></button></td>
+    </tr>
+    <tr>
+      <td>Your Compensation</td>
+      <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPay"></button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <table class="table" style="width: 400px;">
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td>Your ID</td>
+                        <td>{{staff.staffId}}</td>
+                      </tr>
+                      <tr>
+                        <td>Name</td>
+                        <td>{{staff.staffName}}</td>
+                      </tr>
+                      <tr>
+                          <td>Your role</td>
+                          <td>{{staff.role}}</td>
+                      </tr>
+                      <tr>
+                          <td>Your transport center id</td>
+                          <td>{{staff.tc.tcId}}</td>
+                      </tr>
+                      <tr>
+                          <td>Your email</td>
+                          <td>{{staff.email}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <button button (click)="updateStaff(staff.staffId)" class='btn btn-info' 
+                    data-toggle="modal" data-target="#myModal">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <form [formGroup]="staffupdateform" #upds (ngSubmit)="updateS(upds)">
+                      <div class="modal-header">
+                          <h4 class="modal-title" style="text-align: center">Update Client</h4>
+                      </div>
+                      <div class="modal-body">
+                          <div [hidden]="isupdated">
+                               <!-- Name -->
+                              <div class="form-group">
+                                  <label for="name">Staff Name</label>
+                                  <input type="text" class="form-control" formControlName="staffName" 
+                                  [(ngModel)]="staff.staffName">
+                              </div>
+                            
+                              <!-- Email -->
+                              <div class="form-group">
+                                      <label for="email">Staff Email</label>
+                                      <input type="email" class="form-control" formControlName="staffEmail" 
+                                      [(ngModel)]="staff.email">
+                              </div>
+                          </div>
+                          <div [hidden]="!isupdated">
+                              <h4>Client Updated!</h4>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="modal fade" id="modalPay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Compensation</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                            
+<table class="table" style="width: 400px;">
+    <thead></thead>
+    <tbody>
+      <tr>
+        <td>Your Salary</td>
+        <td>{{staff.baseSalary}}</td>
+      </tr>
+      <tr>
+        <td>Your HRA</td>
+        <td>{{staff.houseRateAllowance}}</td>
+      </tr>
+      <tr>
+          <td>Your TA</td>
+          <td>{{staff.tuitionAssistance}}</td>
+      </tr>  
+      <tr>
+          <td>Your incentive</td>
+          <td>{{staff.incentive}}</td>
+      </tr>  
+      <tr>
+          <td>Total</td>
+          <td>{{staff.baseSalary + staff.houseRateAllowance + staff.tuitionAssistance + staff.incentive}}</td>
+      </tr>  
+    </tbody>
+  </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>

@@ -27,6 +27,7 @@ import { EmployeeAndAccountRegisterComponent } from './employee-and-account-regi
 import { PayrollAdminComponent } from './payroll-admin/payroll-admin.component';
 import { BookConsignmentForTcComponent } from './book-consignment-for-tc/book-consignment-for-tc.component';
 import { ListStaffForTcComponent } from './list-staff-for-tc/list-staff-for-tc.component';
+import { ConsignmentListForEmployeeComponent } from './consignment-list-for-employee/consignment-list-for-employee.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ListStaffForTcComponent } from './list-staff-for-tc/list-staff-for-tc.c
     EmployeeAndAccountRegisterComponent,
     PayrollAdminComponent,
     BookConsignmentForTcComponent,
-    ListStaffForTcComponent
+    ListStaffForTcComponent,
+    ConsignmentListForEmployeeComponent
   ],
   imports: [
     BrowserModule,

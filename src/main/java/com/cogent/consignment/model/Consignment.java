@@ -4,6 +4,7 @@ import com.cogent.client.model.Client;
 import com.cogent.staff.model.Staff;
 import com.cogent.transportcentre.model.TransportCentre;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -40,11 +41,8 @@ public class Consignment {
     private Float consDeliveryAmount;
     @Column(name = "status")
     private String status;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "cons_staff",
-            joinColumns = @JoinColumn(name = "cons_id"),
-            inverseJoinColumns = @JoinColumn(name = "staff_id"))
-    private Staff staff;
+    @Column(name = "staff_id")
+    private Long staffId;
 
     public Consignment() {
     }
@@ -60,12 +58,12 @@ public class Consignment {
         this.consDeliveryAmount = consDeliveryAmount;
     }
 
-    public Staff getStaff() {
-        return staff;
+    public Long getStaffId() {
+        return staffId;
     }
 
-    public void setStaff(Staff staff) {
-        this.staff = staff;
+    public void setStaffId(Long staff) {
+        this.staffId = staff;
     }
 
     public String getStatus() {

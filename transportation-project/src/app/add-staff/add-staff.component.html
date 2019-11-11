@@ -1,10 +1,8 @@
 <div class="row">
-        <div class="col-sm-4"> 
-        </div>
-        <div class="col-sm-4">
-            <div [hidden]="submitted" style="width: 400 px;">
-                <form [formGroup]="staffsaveform" 
-                #savestaff (ngSubmit)="saveStaff(saveStaff)">
+        
+        <div class="col-sm-4" style="max-width: 600px;">
+            <div [hidden]="submitted">
+                <form [formGroup]="staffsaveform" #savestaff (ngSubmit)="saveStaff(saveStaff)">
                     <h4 style="text-align: center;" > Create Staff</h4><br> 
                     <!-- staffName -->
                     <div class="form-group">
@@ -12,9 +10,9 @@
                             Staff Name
                         </label>
                         <input type="text" class="form-control" formControlName="staffName" 
-                        data-toggle="tooltip" data-placement="right" title="Enter Staff Name">
+                        data-toggle="tooltip" data-placement="right" title="Enter Staff Name" style="width: 200px;">
                         <div class="alert alert-danger" *ngIf="(StaffName.touched)
-                        &&(StaffName.invalid)" style="margin-top: 5px;">
+                        &&(StaffName.invalid)" style="margin-top: 5px; width: 200px;">
                             <span *ngIf="StaffName.errors.required">
                                 Staff Name is Required
                             </span>

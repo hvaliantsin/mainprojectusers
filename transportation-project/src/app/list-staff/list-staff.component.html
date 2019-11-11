@@ -44,14 +44,14 @@
         </table>
     </div>
 </div>
-<div class="modal fade" id="#myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form [formGroup]="staffupdateform" #upds (ngSubmit)="updateS(upds)">
                 <div class="modal-header">
                     <h4 class="modal-title" style="text-align: center">Update Staff</h4>
                 </div>
-                <div class="modal-body" *ngFor="let staff of stafflist">
+                <div class="modal-body" >
                     <div [hidden]="isupdated">
                        
                         <input type="hidden" class="form-control" formControlName="staffId" 

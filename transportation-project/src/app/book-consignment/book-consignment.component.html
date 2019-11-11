@@ -34,8 +34,15 @@
                     <label for="type">
                         Consignment Type
                     </label>
-                    <input type="text" class="form-control" formControlName="type" data-toggle="tooltip" 
-                    data-placement="right" title="Enter Consignment Type">
+                    <!-- <input type="text" class="form-control" formControlName="type" data-toggle="tooltip" 
+                    data-placement="right" title="Enter Consignment Type"> -->
+                    <select class="form-control" formControlName="type" 
+                    data-toggle="tooltip" data-placement="right" title="Enter Consignment Type">
+                        <option value="null">--Select Role--</option>
+                        <option value="PACKET">Packet</option>
+                        <option value="HEAVY">Heavy</option>
+                        <option value="LIQUID">Liquid</option>
+                    </select>
                     <div class="alert alert-danger" *ngIf="(ConsignmentType.touched)&&(ConsignmentType.invalid)" 
                     style="margin-top: 5px;">
                         <span *ngIf="ConsignmentType.errors.required">

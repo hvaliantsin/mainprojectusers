@@ -1,7 +1,27 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Consignments</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Client Data</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
-      
+
+     
+<table class="table" style="width: 800px;">
+  
+  <thead>
+    
+  </thead>
+  <tbody>
+    <tr>
+      <td>Check all your consignments</td>
+      <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl"></button></td>
+    </tr>
+    <tr>
+      <td>Check your profile</td>
+      <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"></button></td>
+    </tr>
+    <tr>
+      <td>Send feedback</td>
+      <td>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"></button>
+               </td>
+    </tr>
+  </tbody>
+</table>
       <!-- Modal -->
       <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
@@ -35,7 +55,7 @@
                                 <td>{{consignment.consWeight}}</td>
                                 <td>{{consignment.consDate}}</td>
                                 <td>{{consignment.consDeliveryDate}}</td>
-                                <td>{{consignment.consDeliveryLoc}}</td>  
+                                <td>{{consignment.consDeliveryAddress}}</td>  
                                 <td>{{consignment.consDeliveryAmount}}</td> 
                                 <td>{{consignment.status}}</td> 
                               </tr>   
@@ -58,12 +78,35 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                        <p>{{client.clientId}}</p>
-                        <p>{{client.clientUsername}}</p>
-                        <p>{{client.clientEmail}}</p>
-                        <p>{{client.clientPhoneNumber}}</p>
-                        <p>{{client.clientAddress}}</p>
-                        <p>{{client.clientName}}</p>
+                    <table class="table" style="width: 400px;">
+  
+                        <thead>
+                          
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Your username</td>
+                            <td>{{client.clientUsername}}</td>
+                          </tr>
+                          <tr>
+                            <td>Email</td>
+                            <td>{{client.clientEmail}}</td>
+                          </tr>
+                          <tr>
+                            <td>Phone Number</td>
+                            <td>{{client.clientPhoneNumber}}</td>
+                          </tr>
+                          <tr>
+                              <td>Address</td>
+                              <td>{{client.clientAddress}}</td>
+                          </tr>
+                          <tr>
+                              <td>Name</td>
+                              <td>{{client.clientName}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -124,7 +167,7 @@
             </div>
 
             <!-- Small modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
+
 
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
@@ -133,7 +176,7 @@
             <label for="message-text" class="col-form-label">Message:</label>
             <textarea class="form-control" id="message-text"></textarea>
           </div>
-      <button (click)="handleClick()" type="button">Button</button>
+      <button (click)="handleClick()" type="button" data-dismiss="modal">Button</button>
     </div>
   </div>
 </div>

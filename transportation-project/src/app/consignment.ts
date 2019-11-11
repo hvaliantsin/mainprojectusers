@@ -13,7 +13,7 @@ export class Consignment {
     client:Client;
     consDeliveryAmount:number;
     status:string;
-    staff:Staff;
+    staffId:number;
     //consDeliveryLoc:Transportcentre;
    // consClient:Client;
 }

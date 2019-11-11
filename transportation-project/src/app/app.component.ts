@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TokenStorageService } from './reglog/auth/token-storage.service';
+import { NewsService } from './news.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,15 @@ import { TokenStorageService } from './reglog/auth/token-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+  news = {};
   title = 'transportation-project';
   private roles: string[];
   private authority: string;
 
-  constructor(private tokenStorage: TokenStorageService) { }
+  constructor(private tokenStorage: TokenStorageService, private newsService: NewsService) { }
   
   ngOnInit() {
+    this.newsService.getNews().subscribe(data => this.news = data);
     if (this.tokenStorage.getToken()) {
       this.roles = this.tokenStorage.getAuthorities();
       this.roles.every(role => {

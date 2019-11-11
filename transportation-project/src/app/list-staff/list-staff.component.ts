@@ -47,7 +47,8 @@ deleteStaff(id:number){
 updateStaff(id: number){
   console.log("updateStaff")
   this.staffservice.getStaff(id).subscribe(data =>{
-    this.stafflist=data
+    this.staff=data
+    console.log(this.staff);
   },
   error =>console.log(error));
 }
@@ -62,20 +63,22 @@ staffupdateform = new FormGroup({
 });
 updateS(upds){
   console.log("updateS")
-  this.staff = new Staff();
+ // this.staff = new Staff();
 
   this.staff.staffName = this.StaffName.value;
   this.staff.baseSalary = this.StaffBaseSalary.value;
   this.staff.incentive = this.StaffIncentive.value;
   this.staff.email = this.StaffEmail.value;
-  this.staff.role = this.StaffRole.value;
-  this.staff.tc = new Transportcentre();
-  this.staff.tc.tcId = this.StaffTCID.value;
+ // this.staff.role = this.StaffRole.value;
+  //this.staff.tc = new Transportcentre();
+ // this.staff.tc.tcId = this.StaffTCID.value;
+  console.log(this.staff);
   this.staffservice.updateStaff(this.staff.staffId,this.staff).subscribe(
     data => {
       this.isupdated=true;
       this.staffservice.getStaffList().subscribe(data =>{
-        this.manystaff = data
+        this.staff = data;
+        
         })
       },
     error => console.log(error));

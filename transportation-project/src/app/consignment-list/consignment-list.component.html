@@ -59,7 +59,7 @@
                 </div>  
                   
                 <!-- Modal body -->  
-                <div class="modal-body" *ngFor="let consignment of consignmentlist " >  
+                <div class="modal-body" >  
                     <div [hidden]="isupdated">  
       
                         <input type="hidden" class="form-control"  formControlName="consId" [(ngModel)]="consignment.consId">  
@@ -70,10 +70,7 @@
                           
                                 <div class="form-group">  
                                     <label for="name">Consignment Type</label> 
-                                    <select class="form-control" formControlName="type" required>
-                                        <option value="Value1" [selected] ="'Value1' == consignment.type">Value1</option>
-                                        <option value="Value2" [selected] ="'Value2' == consignment.type">Value2</option>
-                                    </select>   
+                                            <input type="text" class="form-control"  formControlName="type" [(ngModel)]="consignment.type"> 
                                 </div>
 
                                 <div>

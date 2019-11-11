@@ -41,13 +41,8 @@ public class ClientService {
     }
     public void updateClient(Long clId, Client client){
         Client client1 = clRepository.findById(clId).get();
-        client1.setClientAddress(client.getClientAddress());
-        client1.setClientEmail(client.getClientEmail());
-        client1.setClientName(client.getClientName());
-        client1.setClientPhoneNumber(client.getClientPhoneNumber());
-        client1.setConsignments(client.getConsignments());
-        client1.setClientUsername(client.getClientUsername());
-    clRepository.save(client1);
+        client.setClientId(client1.getClientId());
+    clRepository.save(client);
     }
     public void deleteClient(Long clId){
         clRepository.deleteById(clId);

@@ -26,11 +26,11 @@ public class StaffController {
 
     @GetMapping("/{staffId}")
     public ResponseEntity getStaffById(@PathVariable("staffId") Long staffId){
-        List<Staff> staff = staffService.getStaffById(staffId);
+        Staff staff = staffService.getStaffById(staffId);
         return new ResponseEntity<>(staff, HttpStatus.OK);
     }
     @GetMapping("/username/{sUsername}")
-    public ResponseEntity getClientByUsername(@PathVariable("sUsername") String sUsername){
+    public ResponseEntity getStaffByUsername(@PathVariable("sUsername") String sUsername){
         Staff staff = staffService.getStaffByUsername(sUsername);
         return new ResponseEntity<>(staff, HttpStatus.OK);
     }
@@ -39,9 +39,9 @@ public class StaffController {
         List<Staff> list = staffService.getAllStaff();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
-    @GetMapping("/tc")
-    public ResponseEntity<List<Staff>> getAllStaffByTC(@RequestBody TransportCentre transportCentre) {
-        List<Staff> list = staffService.getAllStaffByTC(transportCentre);
+    @GetMapping("/tc/{tcId}")
+    public ResponseEntity<List<Staff>> getAllStaffByTC(@PathVariable("tcId") Long tcId) {
+        List<Staff> list = staffService.getAllStaffByTcId(tcId);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
     @PostMapping
@@ -50,18 +50,18 @@ public class StaffController {
         if (flag == null)
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         HttpHeaders header = new HttpHeaders();
-        header.setLocation(builder.path("/staff/{prdId}").buildAndExpand(staff.getStaffId()).toUri());
+        header.setLocation(builder.path("/staff/{staffId}").buildAndExpand(staff.getStaffId()).toUri());
         MailSender.sendGreetingMailToStaff(staff, javaMailSender);
         return  new ResponseEntity<>(header, HttpStatus.CREATED);
     }
 
-    @PutMapping
-    public ResponseEntity<Staff> updateStaff(@RequestBody Staff staff){
-        staffService.updateStaff(staff);
+    @PutMapping("/{staffId}")
+    public ResponseEntity<Staff> updateStaff(@PathVariable("staffId") Long staffId,@RequestBody Staff staff){
+        staffService.updateStaff(staffId,staff);
         return  new ResponseEntity<>(staff,HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{staffId}")
     public ResponseEntity<Void> deleteStaff(@PathVariable("staffId") Long staffId){
         staffService.deleteStaff(staffId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

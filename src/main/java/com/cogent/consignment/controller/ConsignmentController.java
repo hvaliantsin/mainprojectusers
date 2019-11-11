@@ -37,7 +37,7 @@ public class ConsignmentController {
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
     @GetMapping("staff/{staffId}")
-    public ResponseEntity<List<Consignment>> getAllConsignmentsByStaff(@PathVariable("staffId") Long staffId){
+    public ResponseEntity<List<Consignment>> getAllConsignmentsByStaffId(@PathVariable("staffId") Long staffId){
         List<Consignment> list=consignmentService.getAllConsignmentByStaffId(staffId);
         return new ResponseEntity<>(list,HttpStatus.OK);
     }

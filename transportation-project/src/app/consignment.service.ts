@@ -12,6 +12,10 @@ export class ConsignmentService {
   getConsignmentList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`+'');
   }
+  
+  getConsignmentListByStaffId(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}`+'/staff/'+`${id}`);
+  }
 
   getConsignmentListByClientId(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}`+'/clientid/'+`${id}`);

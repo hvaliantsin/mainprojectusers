@@ -45,18 +45,19 @@ export class ListClientComponent implements OnInit {
   }
 updateClient(id:number){
   this.clientservice.getClient(id).subscribe(data =>{
-    this.clientlist=data
+    this.client=data
   },
   error =>console.log(error));
 }
 clientupdateform = new FormGroup({
+  clientId: new FormControl(),
   clientName: new FormControl(),
   clientEmail: new FormControl(),
   clientPhoneNumber: new FormControl(),
   clientAddress: new FormControl()
 });
 updateC(updc){
-  this.client = new Client();
+  //this.client = new Client();
   this.client.clientName = this.ClientName.value;
   this.client.clientEmail = this.ClientEmail.value;
   this.client.clientPhoneNumber = this.ClientPhoneNumber.value;

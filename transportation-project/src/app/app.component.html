@@ -9,11 +9,11 @@
         <li *ngIf="authority === 'client'" class="nav-item">
             <a class="nav-link" routerLink="clientboard">Client Board</a>
           </li>
-          <li *ngIf="authority === 'admin'" class="nav-item">
-              <a class="nav-link" routerLink="clientboard">Admin Board</a>
-            </li>
+            <li *ngIf="authority === 'user'" class="nav-item">
+                <a class="nav-link" routerLink="employeeboard">Employee Board</a>
+              </li>
           <li *ngIf="authority === 'user'" class="nav-item">
-              <a class="nav-link" routerLink="userboard">User Board</a>
+              <a class="nav-link" routerLink="consignment-list-for-employee">My Consignments</a>
             </li>
             <li *ngIf="authority === 'tc'" class="nav-item">
                 <a class="nav-link" routerLink="tcboard">Tc Board</a>
@@ -21,9 +21,10 @@
               <li *ngIf="authority === 'tc'" class="nav-item">
                   <a class="nav-link" routerLink="book-consignment-from-tc">Consignment Booking</a>
                 </li>
-            <li *ngIf="authority === 'tc'" class="nav-item">
-                <a class="nav-link" routerLink="list-transportcentre">View Transport Centres</a>
-              </li>
+                <li *ngIf="authority === 'tc'" class="nav-item">
+                    <a class="nav-link" routerLink="list-staff-for-tc">Transport Centre Staff</a>
+                  </li>
+           
             <li *ngIf="authority === 'admin'" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,4 +79,10 @@
 
   <router-outlet></router-outlet>
 
- 
+
+      <h1 style='margin-left: 2%;'>Top News</h1>
+      <ul>
+          <li *ngFor="let links of news.articles">
+              <a href={{links.url}}>{{links.title}}</a>
+          </li>
+        </ul>

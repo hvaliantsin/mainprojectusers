@@ -104,6 +104,9 @@ export class ClientboardComponent implements OnInit {
   }
 
   handleClick(){
-    this.mailservice.postComplain(this.client);
+    console.log("mail sended")
+    this.mailservice.postComplain(this.client).subscribe(data => {
+      console.log(data)
+    }, error => console.log(error()));
   }
 }

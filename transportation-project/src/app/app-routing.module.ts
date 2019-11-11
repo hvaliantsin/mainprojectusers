@@ -18,6 +18,10 @@ import { EmployeeAndAccountRegisterComponent } from './employee-and-account-regi
 import { ListClientComponent } from './list-client/list-client.component';
 import { PayrollAdminComponent } from './payroll-admin/payroll-admin.component';
 import { BookConsignmentForTcComponent } from './book-consignment-for-tc/book-consignment-for-tc.component';
+import { ListStaffForTcComponent } from './list-staff-for-tc/list-staff-for-tc.component';
+import { EmployeeboardComponent } from './reglog/employeeboard/employeeboard.component';
+import { Consignment } from './consignment';
+import { ConsignmentListForEmployeeComponent } from './consignment-list-for-employee/consignment-list-for-employee.component';
 
 
 const routes: Routes = [
@@ -39,9 +43,11 @@ const routes: Routes = [
   {path:'client-and-account-register',component:ClientAndAccountRegisterComponent},
   {path:'employee-and-account-register',component:EmployeeAndAccountRegisterComponent},
   {path:'clientboard', component:ClientboardComponent},
+  {path:'employeeboard', component:EmployeeboardComponent},
   {path:'payroll-admin', component:PayrollAdminComponent},
-  {path:'book-consignment-from-tc', component:BookConsignmentForTcComponent}
-
+  {path:'book-consignment-from-tc', component:BookConsignmentForTcComponent},
+  {path:'list-staff-for-tc', component:ListStaffForTcComponent},
+  {path:'consignment-list-for-employee', component:ConsignmentListForEmployeeComponent}
 ];
 
 @NgModule({

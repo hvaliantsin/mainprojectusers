@@ -14,10 +14,9 @@ public class StaffService {
     @Autowired
     private StaffRepository sRepository;
 
-    public List<Staff> getStaffById(Long sId){
-        List<Staff> list = new ArrayList<>();
-        list.add(sRepository.findById(sId).get());
-        return list;
+    public Staff getStaffById(Long sId){
+        Staff staff = sRepository.findById(sId).get();
+        return staff;
     }
     public Staff getStaffByUsername(String sUsername){
         Staff staff=sRepository.findByStaffUsername(sUsername);
@@ -32,12 +31,17 @@ public class StaffService {
         List<Staff> list = sRepository.findAllByTc(tc);
         return list;
     }
-
+    public List<Staff> getAllStaffByTcId(Long tcId){
+        List<Staff> list = sRepository.findAllByTc_TcId(tcId);
+        return list;
+    }
     public Staff addStaff(Staff staff){
         Staff list = sRepository.save(staff);
         return list;
     }
-    public void updateStaff(Staff staff){
+    public void updateStaff(Long staffId, Staff staff){
+        Staff staff1 = sRepository.findById(staffId).get();
+        staff.setStaffId(staff1.getStaffId());
         sRepository.save(staff);
     }
     public void deleteStaff(Long sId){

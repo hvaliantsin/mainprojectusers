@@ -11,6 +11,9 @@ import com.cogent.authentication.repository.RoleRepository;
 import com.cogent.authentication.repository.UserRepository;
 import com.cogent.authentication.security.jwt.JwtProvider;
 
+import com.cogent.logging.LoggingController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,7 +58,8 @@ public class AuthRestAPIs {
 
 		String jwt = jwtProvider.generateJwtToken(authentication);
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-
+		Logger logger = LoggerFactory.getLogger(AuthRestAPIs.class);
+		logger.info("User " + userDetails.getUsername() + " has logged in");
 		return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
 	}
 
@@ -109,6 +113,8 @@ public class AuthRestAPIs {
 		user.setRoles(roles);
 		userRepository.save(user);
 
+		Logger logger = LoggerFactory.getLogger(AuthRestAPIs.class);
+		logger.info("User " + user.getUsername() + " has registred");
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
 	}
 }
