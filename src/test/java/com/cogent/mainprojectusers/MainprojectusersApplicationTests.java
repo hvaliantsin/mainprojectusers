@@ -49,7 +49,7 @@ public class MainprojectusersApplicationTests {
     @Test
     public void testGetStaffSuccess() throws URISyntaxException {
         RestTemplate restTemplate = new RestTemplate();
-        final String baseUrl="http://localhost:8080/staff/1";
+        final String baseUrl="http://localhost:8081/staff/1";
         URI uri = new URI(baseUrl);
         ResponseEntity<String> result = restTemplate.getForEntity(uri,String.class);
         //check weather request succeed or not
@@ -60,7 +60,7 @@ public class MainprojectusersApplicationTests {
     @Test
     public void testGetConsignmentSuccess() throws URISyntaxException {
         RestTemplate restTemplate = new RestTemplate();
-        final String baseUrl="http://localhost:8080/consignment/1";
+        final String baseUrl="http://localhost:8081/consignment/1";
         URI uri = new URI(baseUrl);
         ResponseEntity<String> result = restTemplate.getForEntity(uri,String.class);
         //check weather request succeed or not
