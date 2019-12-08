@@ -35,7 +35,9 @@ public class Client {
 
     public Client() {
     }
-
+    public static void meCall(){
+        System.out.println("me");
+    }
     public Client(String clientName, String clientUsername, @Email String clientEmail, String clientPhoneNumber, String clientAddress, Set<Consignment> consignments) {
         this.clientName = clientName;
         this.clientUsername = clientUsername;

@@ -65,7 +65,7 @@ public class MainprojectusersApplicationTests {
         ResponseEntity<String> result = restTemplate.getForEntity(uri,String.class);
         //check weather request succeed or not
         Assert.assertEquals(200,result.getStatusCodeValue());
-        Assert.assertEquals(true,result.getBody().contains("consId"));
+        Assert.assertEquals(true,result.getBody().contains("valik"));
     }
 
 
